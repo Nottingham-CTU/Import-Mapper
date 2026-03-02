@@ -1,0 +1,67 @@
+{
+  "name": "Import Mapper",
+  "namespace": "Nottingham\\ImportMapper",
+  "description": "Advanced importer",
+  "framework-version": 16,
+  "authors": [
+    {
+      "name": "Nicholas Russell",
+      "email": "nicholas.russell@nottingham.ac.uk",
+      "institution": "University of Nottingham"
+    }
+  ],
+  "project-settings": [
+    {
+      "key": "admin-roles",
+      "name": "Admin Roles",
+      "type": "user-role-list",
+      "repeatable": true
+    },
+    {
+      "key": "importer-roles",
+      "name": "Importer Roles",
+      "type": "user-role-list",
+      "repeatable": true
+    },
+    {
+      "key": "notification-emails",
+      "name": "Notification Emails",
+      "type": "text",
+      "repeatable": true
+    }
+  ],
+  "links": {
+    "project": [
+      {
+        "name": "Import Mapper",
+        "icon": "fas fa-table",
+        "url": "pages/dashboard.php"
+      }
+    ]
+  },
+  "crons": [
+    {
+      "cron_name": "process_import_jobs",
+      "cron_description": "Processes queued CSV import jobs",
+      "method": "processImportJobs",
+      "cron_frequency": "60",
+      "cron_max_run_time": "3600"
+    }
+  ],
+  "auth-ajax-actions": [
+    "get_project_structure",
+    "get_project_structure_hash",
+    "get_mapping",
+    "get_mappings",
+    "get_active_jobs",
+    "save_mapping",
+    "update_mapping",
+    "copy_mapping",
+    "delete_mapping",
+    "get_logs",
+    "validate_csv",
+    "preview_regex",
+    "update_mapping_status",
+    "cancel_import_job"
+  ]
+}
