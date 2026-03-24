@@ -16,10 +16,20 @@ export default defineConfig({
         entryFileNames: "[name]-[hash].js",
         chunkFileNames: "[name]-[hash].js",
         assetFileNames: "[name]-[hash].[ext]",
-        manualChunks: {
-          react: ["react", "react-dom"],
-        },
       },
+      plugins: [
+        {
+          name: 'rewrite-asset-paths',
+          generateBundle(_, bundle) {
+            for (const file of Object.values(bundle)) {
+              if (file.type === 'chunk') {
+                file.code = file.code.replace( /"\.\/([^"]+\.js)"/g,
+                                               '"./?prefix=import_mapper&page=$1"' );
+              }
+            }
+          }
+        }
+      ],
     },
   },
 });

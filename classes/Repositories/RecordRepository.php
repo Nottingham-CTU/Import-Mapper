@@ -178,21 +178,24 @@ final class RecordRepository
         $resolvedProjectId = $projectId ?? $this->module->getProjectId();
 
         $this->crnEnabled ??= $this->module->isModuleEnabled('custom_record_naming', $resolvedProjectId);
-        // TODO: uncomment the following code when CRN module is updated to support requesting a record id
-//        if ($this->crnEnabled) {
-//            $crnModule = ExternalModules::getModuleInstance('custom_record_naming');
-//            if ($crnModule !== null && method_exists($crnModule, 'createRecord')) {
-//                $eventId = $project?->getFirstEventId() ?? null;
-//                $dagId = ($dag !== null && $project !== null)
-//                    ? $project->getDagIdByUniqueName($dag)
-//                    : null;
-//
-//                $recordName = $crnModule->createRecord($eventId, $dagId);
-//                if ($recordName !== null) {
-//                    return (string)$recordName;
-//                }
-//            }
-//        }
+
+        if ( $this->crnEnabled )
+        {
+            $crnModule = ExternalModules::getModuleInstance('custom_record_naming');
+            if ( $crnModule !== null && method_exists($crnModule, 'createRecord') )
+            {
+                $eventId = $project?->getFirstEventId() ?? null;
+                $dagId = ( $dag !== null && $project !== null )
+                    ? $project->getDagIdByUniqueName($dag)
+                    : null;
+
+                $recordName = $crnModule->createRecord($eventId, $dagId);
+                if ($recordName !== null)
+                {
+                    return (string)$recordName;
+                }
+            }
+        }
 
         return REDCap::reserveNewRecordId($resolvedProjectId);
     }

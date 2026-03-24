@@ -579,4 +579,20 @@ class ImportMapper extends AbstractExternalModule
             default => ['success' => false, 'errors' => ['Invalid action']],
         };
     }
+
+
+    /**
+     *  Extends the built-in getUrl function so it behaves correctly for static files (e.g. js).
+     */
+    public function getUrl()
+    {
+        $args = func_get_args();
+        $path = array_shift( $args );
+        if ( strpos( $path, '.php' ) === false )
+        {
+            $newPath = $path . '.php';
+            return parent::getUrl( $newPath, ...$args );
+        }
+        return parent::getUrl( $path, ...$args );
+    }
 }

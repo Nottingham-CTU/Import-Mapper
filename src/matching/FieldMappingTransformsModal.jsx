@@ -674,7 +674,7 @@ function FieldMappingTransformsModal({
                 </select>
                 <small className="form-text text-muted">
                   Dates will be automatically converted during import to
-                  REDCap's required YYYY-MM-DD format.
+                  REDCap's required format.
                 </small>
             </div>
             )}

@@ -6,4 +6,3 @@ coverage/
 .vscode/
 .tanstack
 /vendor/
-composer.lock
