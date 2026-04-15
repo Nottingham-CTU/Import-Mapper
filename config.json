@@ -3,10 +3,19 @@
   "namespace": "Nottingham\\ImportMapper",
   "description": "Advanced importer",
   "framework-version": 16,
+  "compatibility" : {
+    "php-version-min" : "8.4.0",
+    "php-version-max" : "8.99.99",
+    "redcap-version-min" : "16.0.0"
+  },
   "authors": [
     {
+      "name": "Richard Dooley",
+      "email": "richard.dooley@nottingham.ac.uk",
+      "institution": "University of Nottingham"
+    },
+    {
       "name": "Nicholas Russell",
-      "email": "nicholas.russell@nottingham.ac.uk",
       "institution": "University of Nottingham"
     }
   ],
