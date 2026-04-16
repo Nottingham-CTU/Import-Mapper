@@ -52,7 +52,6 @@ try {
     $allowedMimeTypes = ['text/csv', 'text/plain', 'application/csv', 'application/vnd.ms-excel'];
     $finfo = finfo_open(FILEINFO_MIME_TYPE);
     $mimeType = finfo_file($finfo, $fileInfo['tmp_name']);
-    finfo_close($finfo);
     if (!in_array($mimeType, $allowedMimeTypes)) {
         http_response_code(400);
         throw new Exception('Invalid file MIME type. Expected CSV format.');
