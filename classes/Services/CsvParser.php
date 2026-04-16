@@ -71,7 +71,7 @@ final readonly class CsvParser
     {
         // Read header row (skip empty rows before headers)
         $headers = [];
-        while (($row = fgetcsv($stream)) !== false) {
+        while (($row = fgetcsv($stream, null, ',', '"', '')) !== false) {
             if ($row === [null] || (count($row) === 1 && $row[0] === null)) {
                 continue;
             }
@@ -89,7 +89,7 @@ final readonly class CsvParser
         $dataIndex = 0; // 0-based index across all data rows (empty rows excluded)
         $chunkEnd = $offset + $limit;
 
-        while (($row = fgetcsv($stream)) !== false) {
+        while (($row = fgetcsv($stream, null, ',', '"', '')) !== false) {
             // Skip completely empty rows
             if ($row === [null] || (count($row) === 1 && $row[0] === null)) {
                 continue;
