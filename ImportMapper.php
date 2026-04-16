@@ -581,6 +581,18 @@ class ImportMapper extends AbstractExternalModule
     }
 
 
+    // Show the import mapper link based on whether the user is able to view or edit any
+    // mappings. If the user has no access, hide the link.
+    function redcap_module_link_check_display( $project_id, $link )
+    {
+        if ( $this->permissionService->canViewMappings() )
+        {
+            return $link;
+        }
+        return null;
+    }
+
+
     /**
      *  Extends the built-in getUrl function so it behaves correctly for static files (e.g. js).
      */
