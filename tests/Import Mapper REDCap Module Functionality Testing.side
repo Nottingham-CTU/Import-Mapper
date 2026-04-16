@@ -554,6 +554,12 @@
           "id": "68cbec60-684e-40b3-8ff1-bd831cb4365e"
         },
         {
+          "command": "runScript",
+          "target": "//SETDESC:Return to imports page",
+          "value": "",
+          "id": "12172885-f36f-454f-bc03-4116eb3565df"
+        },
+        {
           "command": "click",
           "target": "css=#external-modules-cron-modal .close",
           "value": "",

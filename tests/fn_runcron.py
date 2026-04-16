@@ -25,6 +25,7 @@ class Test_fn_runcron:
     WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, "#external-modules-cron-table tr[data-cron=\"process_import_jobs\"][data-prefix=\"import_mapper\"] button")))
     self.driver.find_element(By.CSS_SELECTOR, "#external-modules-cron-table tr[data-cron=\"process_import_jobs\"][data-prefix=\"import_mapper\"] button").click()
     WebDriverWait(self.driver, 60).until(expected_conditions.presence_of_element_located((By.XPATH, "//*[contains(@class,'module-cron-list')][contains(.,'Finished External Module Cron')]")))
+    self.driver.execute_script("//SETDESC:Return to imports page")
     self.driver.find_element(By.CSS_SELECTOR, "#external-modules-cron-modal .close").click()
     self.driver.execute_script("window.location = arguments[0]", self.vars["_returnurl"])
     WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.ID, "south")))
