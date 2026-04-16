@@ -1,0 +1,5766 @@
+{
+  "id": "23032dfc-859d-4761-8872-a109b40cbb8b",
+  "version": "3.0",
+  "name": "Import Mapper REDCap Module Functionality Testing",
+  "url": "http://www.google.com",
+  "urls": [
+    "http://www.google.com"
+  ],
+  "plugins": [],
+  "suites": [],
+  "tests": [
+    {
+      "id": "c982afae-c8e6-41f9-a6da-e11c7740b2b3",
+      "name": "init",
+      "commands": [
+        {
+          "id": "6be11cf5-d821-4e75-8614-36456c1b2d37",
+          "command": "open",
+          "target": "/",
+          "value": ""
+        },
+        {
+          "command": "click",
+          "target": "linkText=My Projects",
+          "value": "",
+          "id": "95444dc1-cc1f-444c-b3a8-0ab7e9a592bb"
+        },
+        {
+          "command": "assertElementNotPresent",
+          "target": "xpath=//*[@id='table-proj_table'][contains(.,'Import Mapper Test')]",
+          "value": "",
+          "id": "b818e761-5f5d-4a9b-817d-8b6ed25c617f"
+        },
+        {
+          "command": "executeScript",
+          "target": "return ['C','L']",
+          "value": "projtypes",
+          "id": "42deeded-7327-4381-abce-7d18cdead30d"
+        },
+        {
+          "command": "forEach",
+          "target": "projtypes",
+          "value": "projtype",
+          "id": "046fa9ca-ae10-4232-b75a-973681129aa1"
+        },
+        {
+          "command": "click",
+          "target": "linkText=New Project",
+          "value": "",
+          "id": "587de962-8c53-44b0-a7cc-7a665c45a72a"
+        },
+        {
+          "command": "type",
+          "target": "id=app_title",
+          "value": "Import Mapper Test ${projtype}",
+          "id": "fbc4e4da-4db1-4850-90fb-4cd0be467d61"
+        },
+        {
+          "command": "select",
+          "target": "id=purpose",
+          "value": "value=0",
+          "id": "f9f16b27-c9ba-4276-9195-16a8cf039694"
+        },
+        {
+          "command": "click",
+          "target": "id=project_template_radio1",
+          "value": "",
+          "id": "e4b959d3-0dfd-4103-b486-ca49f8349471"
+        },
+        {
+          "command": "if",
+          "target": "${projtype} == 'C'",
+          "value": "",
+          "id": "41de110b-c590-4dc9-89b5-b31a52d30367"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//table[@id='table-template_projects_list']//tr[contains(.,'Classic Database')]//input",
+          "value": "",
+          "id": "8f7c9e31-c065-42d0-aa9e-5e067180ce5b"
+        },
+        {
+          "command": "else",
+          "target": "",
+          "value": "",
+          "id": "847ced56-ea5f-4a7f-b0f5-34d31df107e4"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//table[@id='table-template_projects_list']//tr[contains(.,'Longitudinal Database (1 arm)')]//input",
+          "value": "",
+          "id": "6247ef6a-526a-421e-a4e4-c989f31a24f5"
+        },
+        {
+          "command": "end",
+          "target": "",
+          "value": "",
+          "id": "3146bfa2-f964-415c-85fc-8aa143bb9eb5"
+        },
+        {
+          "command": "click",
+          "target": "css=.btn-primaryrc",
+          "value": "",
+          "id": "a51e4e78-c21b-4d6d-8fc1-704e249b690a"
+        },
+        {
+          "command": "pause",
+          "target": "5000",
+          "value": "",
+          "id": "5df27194-9496-4fb6-8e2f-f1d7653feb84"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"/UserRights/index.php\"]",
+          "value": "",
+          "id": "0f0880f0-5425-4b4f-a4df-6b96d86e8c53"
+        },
+        {
+          "command": "type",
+          "target": "id=new_rolename",
+          "value": "Admin",
+          "id": "6c6de9c6-32a7-497c-91e8-2edc58959c97"
+        },
+        {
+          "command": "click",
+          "target": "id=createRoleBtn",
+          "value": "",
+          "id": "a8fc21e5-e532-4cf1-8071-81de691c9e9a"
+        },
+        {
+          "command": "check",
+          "target": "name=design",
+          "value": "",
+          "id": "7054f1ef-7b76-4681-9c0a-d798bb0542b3"
+        },
+        {
+          "command": "check",
+          "target": "name=data_access_groups",
+          "value": "",
+          "id": "e74250b5-ee71-48b4-853e-7e5f8339fff8"
+        },
+        {
+          "command": "check",
+          "target": "name=record_create",
+          "value": "",
+          "id": "7c05c06c-8ce8-4424-8ef4-37d62cd2bc6d"
+        },
+        {
+          "command": "click",
+          "target": "css=button[style*=\"bold\"]",
+          "value": "",
+          "id": "b95be42e-d0db-4b2a-8cfe-cd2b7dadc664"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//*[@id='table-user_rights_roles_table']//tr[contains(.,'Admin')]",
+          "value": "30000",
+          "id": "66c2f7c9-3791-4c9c-88e1-b7e4350685bc"
+        },
+        {
+          "command": "pause",
+          "target": "3000",
+          "value": "",
+          "id": "6c1c28f3-a71a-44bc-a397-0ba94a6c4dec"
+        },
+        {
+          "command": "type",
+          "target": "id=new_rolename",
+          "value": "Importer",
+          "id": "8d794a09-8180-45f1-a562-eb18ff5f8e06"
+        },
+        {
+          "command": "click",
+          "target": "id=createRoleBtn",
+          "value": "",
+          "id": "2cc088cb-0cfc-40ef-99a9-4ed826bf3517"
+        },
+        {
+          "command": "check",
+          "target": "name=record_create",
+          "value": "",
+          "id": "d8fedcb2-28c1-41fb-8776-d85833349385"
+        },
+        {
+          "command": "click",
+          "target": "css=button[style*=\"bold\"]",
+          "value": "",
+          "id": "0b05d72e-b37d-4d16-821a-dfbd765feba8"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//*[@id='table-user_rights_roles_table']//tr[contains(.,'Importer')]",
+          "value": "30000",
+          "id": "edf1d8bc-4ed9-413e-9fab-48ae35207db8"
+        },
+        {
+          "command": "pause",
+          "target": "3000",
+          "value": "",
+          "id": "5d926286-0e9e-48c3-b056-dc0fe4538726"
+        },
+        {
+          "command": "type",
+          "target": "id=new_rolename",
+          "value": "Standard",
+          "id": "d51bc2f8-a6a7-47be-b20d-1d5e1cb05e20"
+        },
+        {
+          "command": "click",
+          "target": "id=createRoleBtn",
+          "value": "",
+          "id": "18efeaf7-2dc8-462e-9d06-b7c5190fd942"
+        },
+        {
+          "command": "check",
+          "target": "name=record_create",
+          "value": "",
+          "id": "422b0b78-c8dc-4c8c-9041-4e4241e7f9ad"
+        },
+        {
+          "command": "click",
+          "target": "css=button[style*=\"bold\"]",
+          "value": "",
+          "id": "75274247-300e-4d45-8393-61782801418c"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//*[@id='table-user_rights_roles_table']//tr[contains(.,'Standard')]",
+          "value": "30000",
+          "id": "d45a0014-946d-4fca-aa9d-fc8034fd0f2d"
+        },
+        {
+          "command": "pause",
+          "target": "3000",
+          "value": "",
+          "id": "b839e74e-80c3-4ae0-8b99-72f83ecddca0"
+        },
+        {
+          "command": "type",
+          "target": "id=new_username_assign",
+          "value": "user1",
+          "id": "46256c33-6bbc-4ff2-ab6d-9ee4327f5ac7"
+        },
+        {
+          "command": "click",
+          "target": "id=assignUserBtn",
+          "value": "",
+          "id": "31e5dab5-d47c-45c0-a00a-136a3cfc512d"
+        },
+        {
+          "command": "waitForElementVisible",
+          "target": "id=notify_email_role",
+          "value": "30000",
+          "id": "b7d29b24-b5b3-4179-96fa-ac3e79fcdb74"
+        },
+        {
+          "command": "uncheck",
+          "target": "id=notify_email_role",
+          "value": "",
+          "id": "698c7b92-2ea2-45e9-8270-057b2c3dbe20"
+        },
+        {
+          "command": "select",
+          "target": "id=user_role",
+          "value": "label=Admin",
+          "id": "5ac94aee-462e-40e5-a750-ea1c93db6e26"
+        },
+        {
+          "command": "click",
+          "target": "id=assignDagRoleBtn",
+          "value": "",
+          "id": "ee4e44c5-236b-4124-a4bb-1b8e501ca8bb"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//*[@id='table-user_rights_roles_table']//tr[contains(.,'Admin')][contains(.,'user1')]",
+          "value": "30000",
+          "id": "9ad713c1-f38a-4842-8c73-cc3a4ed8a2e9"
+        },
+        {
+          "command": "pause",
+          "target": "3000",
+          "value": "",
+          "id": "f18f8ff1-96df-45a9-b6c8-938b4e116b7b"
+        },
+        {
+          "command": "type",
+          "target": "id=new_username_assign",
+          "value": "user2",
+          "id": "a50dcd51-7934-4300-875f-e064ab3ecc65"
+        },
+        {
+          "command": "click",
+          "target": "id=assignUserBtn",
+          "value": "",
+          "id": "7963b1ad-e83a-4cee-af6b-877d1be189df"
+        },
+        {
+          "command": "waitForElementVisible",
+          "target": "id=notify_email_role",
+          "value": "30000",
+          "id": "a5b1b5aa-544d-43fd-9224-cc8321b53a0a"
+        },
+        {
+          "command": "uncheck",
+          "target": "id=notify_email_role",
+          "value": "",
+          "id": "7ded8f7e-7355-4b47-a3ab-2c36e337aeef"
+        },
+        {
+          "command": "select",
+          "target": "id=user_role",
+          "value": "label=Importer",
+          "id": "24670d04-7c23-49b3-8cec-595c3805e1ce"
+        },
+        {
+          "command": "click",
+          "target": "id=assignDagRoleBtn",
+          "value": "",
+          "id": "e00a5aee-8797-4f1f-9933-a6e99545acec"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//*[@id='table-user_rights_roles_table']//tr[contains(.,'Importer')][contains(.,'user2')]",
+          "value": "30000",
+          "id": "31e0c773-e406-42ee-a2b0-c8ec90f425db"
+        },
+        {
+          "command": "pause",
+          "target": "3000",
+          "value": "",
+          "id": "ea3d08fb-a77c-4d39-82f0-f1f2afd0f4cf"
+        },
+        {
+          "command": "type",
+          "target": "id=new_username_assign",
+          "value": "user3",
+          "id": "49519ed1-6332-4524-91b3-48d83545476f"
+        },
+        {
+          "command": "click",
+          "target": "id=assignUserBtn",
+          "value": "",
+          "id": "e573c9b3-7043-4636-9527-66cb754aff9c"
+        },
+        {
+          "command": "waitForElementVisible",
+          "target": "id=notify_email_role",
+          "value": "30000",
+          "id": "c801788e-f9ee-4194-a348-37ecbdd7f167"
+        },
+        {
+          "command": "uncheck",
+          "target": "id=notify_email_role",
+          "value": "",
+          "id": "057327e8-0d5c-4b46-9c5d-b695d1d1f9a6"
+        },
+        {
+          "command": "select",
+          "target": "id=user_role",
+          "value": "label=Standard",
+          "id": "8d20d625-fc91-4a8a-be47-60097445521f"
+        },
+        {
+          "command": "click",
+          "target": "id=assignDagRoleBtn",
+          "value": "",
+          "id": "326cdb45-a52b-4b7a-b7d5-947a58cfaa20"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//*[@id='table-user_rights_roles_table']//tr[contains(.,'Standard')][contains(.,'user3')]",
+          "value": "30000",
+          "id": "9fd7055c-6ca9-4154-b910-eae372da692d"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"ProjectSetup/index.php\"]",
+          "value": "",
+          "id": "2bb33832-92d6-428a-884f-2f964797fc61"
+        },
+        {
+          "command": "click",
+          "target": "id=enableRepeatingFormsEventsBtn",
+          "value": "",
+          "id": "c9b2d12d-410a-4d08-abc5-3c4ac1f46b15"
+        },
+        {
+          "command": "if",
+          "target": "${projtype} == 'C'",
+          "value": "",
+          "id": "bcb4e778-fd12-4aa3-a99a-ee58fe77e72e"
+        },
+        {
+          "command": "check",
+          "target": "xpath=//*[@id='table-repeat_setup']//tr[contains(.,'Month 2 Data')]//input[@type='checkbox']",
+          "value": "",
+          "id": "d28d21f3-dbfb-475c-8bb0-6c1e2bf5426e"
+        },
+        {
+          "command": "else",
+          "target": "",
+          "value": "",
+          "id": "3986373c-34b7-4f5f-8ccd-6a036c7d3245"
+        },
+        {
+          "command": "select",
+          "target": "xpath=//*[@id='table-repeat_setup']//tr[contains(.,'Visit 2')]//select",
+          "value": "value=PARTIAL",
+          "id": "171c0367-3467-4beb-8d3a-34558b15a70b"
+        },
+        {
+          "command": "check",
+          "target": "xpath=//*[@id='table-repeat_setup']//tr[contains(.,'Visit 2')]//div[@class='repeat_event_form_div'][contains(.,'Visit Lab Data')]//input",
+          "value": "",
+          "id": "419ceb3d-14e1-4bbd-b741-4a066a993bbe"
+        },
+        {
+          "command": "end",
+          "target": "",
+          "value": "",
+          "id": "b6b0c68d-22b1-497d-81a4-677f5b96d582"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//div[@aria-describedby='repeatingInstanceEnableDialog']//button[contains(.,'Save')]",
+          "value": "",
+          "id": "efea8ebd-3ec4-47dd-a21b-3a4e7f3fdc8d"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//button[@id='enableRepeatingFormsEventsBtn'][contains(.,'Modify')]",
+          "value": "30000",
+          "id": "17a56910-d879-4610-9680-ed1f82cd9095"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"ExternalModules/manager/project.php\"]",
+          "value": "",
+          "id": "30d9f328-7461-474e-84ba-3d9005e0c8e0"
+        },
+        {
+          "command": "click",
+          "target": "id=external-modules-enable-modules-button",
+          "value": "",
+          "id": "2fc53932-7259-4e79-9380-77898c83e10b"
+        },
+        {
+          "command": "click",
+          "target": "css=tr[data-module=\"import_mapper\"] button.enable-button",
+          "value": "",
+          "id": "9f0aa54b-282e-4143-83b4-12fdcad3e882"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "css=tr[data-module=\"import_mapper\"] button.external-modules-configure-button",
+          "value": "30000",
+          "id": "fe86e67c-85cc-42c3-a039-ee5e7607ed63"
+        },
+        {
+          "command": "click",
+          "target": "css=tr[data-module=\"import_mapper\"] button.external-modules-configure-button",
+          "value": "",
+          "id": "fac80089-5700-4279-b5d3-31e09346ddf3"
+        },
+        {
+          "command": "waitForElementVisible",
+          "target": "name=admin-roles____0",
+          "value": "30000",
+          "id": "b1369cd0-7c51-4259-9ccf-9d24607a0c45"
+        },
+        {
+          "command": "runScript",
+          "target": "$('[name=\"admin-roles____0\"]')[0].selectedIndex=1;$('[name=\"importer-roles____0\"]')[0].selectedIndex=2",
+          "value": "",
+          "id": "565f36e8-2dcd-4dec-88f0-4a381c6e1316"
+        },
+        {
+          "command": "pause",
+          "target": "500",
+          "value": "",
+          "id": "356b70e9-5a62-4724-bf72-65c71fe1ea00"
+        },
+        {
+          "command": "click",
+          "target": "css=#external-modules-configure-modal button.save",
+          "value": "",
+          "id": "affada71-a5a0-45d9-a0fa-4e1d1cbc6afd"
+        },
+        {
+          "command": "click",
+          "target": "linkText=My Projects",
+          "value": "",
+          "id": "11050d23-4e04-4163-9922-7963b83dc02c"
+        },
+        {
+          "command": "end",
+          "target": "",
+          "value": "",
+          "id": "c19c7615-aade-4e50-b3eb-a7ba62de83b1"
+        }
+      ]
+    },
+    {
+      "id": "7a53b4f3-0ab7-4198-8115-36b7892c8b83",
+      "name": "fn runcron",
+      "commands": [
+        {
+          "command": "assertElementPresent",
+          "target": "id=south",
+          "value": "",
+          "id": "0cc300bf-733b-4af2-95d8-dad3554001f4"
+        },
+        {
+          "id": "4adc34ba-0f6e-4c67-9593-952c89cbf873",
+          "command": "executeScript",
+          "target": "return window.location.href",
+          "value": "_returnurl"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"ControlCenter/index.php\"]",
+          "value": "",
+          "id": "b9700c94-d6b0-41e2-80cf-5f4880b1c3ec"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"ExternalModules/manager/control_center.php\"]",
+          "value": "",
+          "id": "4fa93ad0-553a-4c45-82d1-586cd36b0dc7"
+        },
+        {
+          "command": "click",
+          "target": "css=tr[data-module=\"import_mapper\"] button.external-modules-cron-test-button",
+          "value": "",
+          "id": "fbca17a2-842d-44fe-9b74-88a3f66a8d11"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "css=#external-modules-cron-table tr[data-cron=\"process_import_jobs\"][data-prefix=\"import_mapper\"] button",
+          "value": "30000",
+          "id": "a9e537ab-63d4-49be-873e-25185979e724"
+        },
+        {
+          "command": "click",
+          "target": "css=#external-modules-cron-table tr[data-cron=\"process_import_jobs\"][data-prefix=\"import_mapper\"] button",
+          "value": "",
+          "id": "1608182c-91d0-4da3-a7a3-6650e0ea0894"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//*[contains(@class,'module-cron-list')][contains(.,'Finished External Module Cron')]",
+          "value": "60000",
+          "id": "68cbec60-684e-40b3-8ff1-bd831cb4365e"
+        },
+        {
+          "command": "click",
+          "target": "css=#external-modules-cron-modal .close",
+          "value": "",
+          "id": "e148ac13-bcb1-40c7-a430-d9117afb0555"
+        },
+        {
+          "command": "runScript",
+          "target": "window.location = ${_returnurl}",
+          "value": "",
+          "id": "94a37073-2820-4466-9f3b-c5e495527995"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "id=south",
+          "value": "30000",
+          "id": "2481ede5-e8c6-44b6-98a2-5f63c6b8b7f0"
+        }
+      ]
+    },
+    {
+      "id": "fad535ec-8134-4498-8b39-c12d9564deff",
+      "name": "t01 Import into classic project",
+      "commands": [
+        {
+          "id": "55e6d3b7-7999-4800-921b-2a9f0195531e",
+          "command": "open",
+          "target": "/",
+          "value": ""
+        },
+        {
+          "command": "click",
+          "target": "linkText=My Projects",
+          "value": "",
+          "id": "cc55f047-fb80-4431-a4eb-e58d430523db"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//*[@id='table-proj_table'][contains(.,'Import Mapper Test C')]",
+          "value": "",
+          "id": "9c27ce7b-e9de-4676-843d-8471f91b3813"
+        },
+        {
+          "command": "click",
+          "target": "linkText=Import Mapper Test C",
+          "value": "",
+          "id": "6b71aa23-0d6e-485e-b463-08eee1b04bd9"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"prefix=import_mapper\"][href*=\"page=pages%2Fdashboard\"]",
+          "value": "",
+          "id": "15f44aa5-ca5b-44c3-bdea-8405927ba067"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'New mapping')]",
+          "value": "",
+          "id": "9af71478-cd01-4484-810b-e5f4f8c3a318"
+        },
+        {
+          "command": "sendKeys",
+          "target": "id=map-name",
+          "value": "${KEY_LEFT}Test1",
+          "id": "acee8615-a6c7-4711-bd53-442611c7793c"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "d6bd2149-d7e7-4b00-a2cc-0e3e67df6b41"
+        },
+        {
+          "command": "type",
+          "target": "id=csv",
+          "value": "REPODIR/tests/testdata.csv",
+          "id": "38fcc805-604c-474d-82c7-caea86cb858b"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "css=.alert-success",
+          "value": "30000",
+          "id": "eb0c76f7-1b04-44a8-bb0b-a28a708e485c"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify CSV fields.",
+          "value": "",
+          "id": "540ebe3d-9f8c-4147-a762-1c61f693fce4"
+        },
+        {
+          "command": "//type",
+          "target": "css=div.mb-3",
+          "value": "SAVESCREENSHOT",
+          "id": "ab95cd15-c9ce-4a4f-a7e7-0ce92374a7d1"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "7216889d-fcd5-47c8-9a6a-b2871878afea"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "row",
+          "id": "ef7c8555-2293-4072-80b5-2d0d000f6daa"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "7df47c2e-4fa4-4c70-bf7b-63813f13191d"
+        },
+        {
+          "command": "store",
+          "target": "int2",
+          "value": "value",
+          "id": "777745c0-38ba-4de1-a484-968332b7c535"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "887bdb80-c26b-4a68-84d7-6a84c0125b06"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "97bb6ec7-1367-4605-a6ca-f0ba3043e522"
+        },
+        {
+          "command": "store",
+          "target": "demographics",
+          "value": "value",
+          "id": "9c9ea4ca-d779-4174-9cda-062ce2c14d66"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "ec4372c7-781b-4793-9ed8-c991c79cebf1"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "2c9a30aa-14d7-4bb7-b9e2-971721468afe"
+        },
+        {
+          "command": "store",
+          "target": "study_id",
+          "value": "value",
+          "id": "37f4ac72-9e17-40d2-bebf-16e5c7b5f70c"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "78342a23-abe9-4caf-a989-6c3d846e69c1"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Add field mapping')]",
+          "value": "",
+          "id": "ba56e11b-a4ad-48d4-9ae2-cac3f32b05ec"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "row",
+          "id": "ce80c612-68c9-4a01-9f52-444fbfd25c18"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "ad2365dc-95f6-4cd0-8910-9afa8b5490ee"
+        },
+        {
+          "command": "store",
+          "target": "string1",
+          "value": "value",
+          "id": "ea639149-5120-4724-81b9-05b9737612e8"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "662da94b-fc55-475f-87d4-ec233671dc1c"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "f07ecb6b-a7cf-4c9c-81ad-37ea20d1e7a5"
+        },
+        {
+          "command": "store",
+          "target": "demographics",
+          "value": "value",
+          "id": "8c31b3b0-e526-41e4-88cd-242e4c4b7c24"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "03295dfe-82cc-4402-9731-4e5b25f375ea"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "b54654cb-1e02-402d-918d-83c62663664a"
+        },
+        {
+          "command": "store",
+          "target": "first_name",
+          "value": "value",
+          "id": "767bb73f-c280-4c80-afa0-46c3253a3a28"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "c75d4b69-ed8c-441b-b675-69781b68bf4b"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Add field mapping')]",
+          "value": "",
+          "id": "e8837f67-4e99-45c3-9f2c-db7a40fa3914"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "row",
+          "id": "4fc01f8a-7b24-4a48-af1e-7d73bf6bb11a"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "73ee9ae4-08f6-4e9c-8a1f-aff53d70f857"
+        },
+        {
+          "command": "store",
+          "target": "string2",
+          "value": "value",
+          "id": "89980fbb-0121-48ed-bab7-a7f575e05afc"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "8d245cb9-168e-4447-87b3-41a783b2f8cb"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "5ec6cf94-3b64-480c-99d6-fc8157ecdbd1"
+        },
+        {
+          "command": "store",
+          "target": "demographics",
+          "value": "value",
+          "id": "115b1d55-bd27-4755-8afd-11e4ad1b7016"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "aa7ef896-fe4e-4790-a8fe-35d18f95fe2f"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "bf645830-890c-4ca6-b289-40f203e0a9d8"
+        },
+        {
+          "command": "store",
+          "target": "last_name",
+          "value": "value",
+          "id": "aa65705d-06fb-43c1-ada8-8ae2b8381619"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "956ac6e4-a8f7-4684-94cb-8679b8a43408"
+        },
+        {
+          "command": "click",
+          "target": "xpath=(//*[@id='import-wrangler']//button[contains(.,'Add')])[3]",
+          "value": "",
+          "id": "99ba675a-e15b-4db5-95dc-da44c5528f1b"
+        },
+        {
+          "command": "click",
+          "target": "id=combineEnabled",
+          "value": "",
+          "id": "a227a997-421c-4ab9-9b1e-4dbcf5d17b2e"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'modal')]//div[contains(.,'Additional Fields')]//button[contains(.,'Add Field')]",
+          "value": "",
+          "id": "c1d5508b-c82a-4fe7-966b-664af76e7072"
+        },
+        {
+          "command": "select",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'modal')]//div[contains(.,'Additional Fields')]//select",
+          "value": "value=string3",
+          "id": "875b7ea2-30d7-4869-bdc7-b86357e52770"
+        },
+        {
+          "command": "check",
+          "target": "id=fieldRegex-0",
+          "value": "",
+          "id": "773b1dc0-5803-470d-a92a-f17d2e6822da"
+        },
+        {
+          "command": "sendKeys",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'modal')]//div[contains(.,'Additional Fields')]//input[contains(@placeholder,'Pattern')]",
+          "value": "${KEY_LEFT}/^(..).*/",
+          "id": "6d714712-ff3d-4642-aee5-8e0a451c93d4"
+        },
+        {
+          "command": "sendKeys",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'modal')]//div[contains(.,'Additional Fields')]//input[contains(@placeholder,'Replacement')]",
+          "value": "${KEY_LEFT}$1",
+          "id": "c3082273-7771-48d7-9eab-81efe738570e"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'modal')]//div[contains(.,'Additional Fields')]//button[contains(.,'Save')]",
+          "value": "",
+          "id": "73d34f75-d3d2-4f6b-8e1c-271dc56ac00e"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Add field mapping')]",
+          "value": "",
+          "id": "89066530-71ef-4574-ab68-7efbe7ef41aa"
+        },
+        {
+          "command": "store",
+          "target": "4",
+          "value": "row",
+          "id": "2ac0cc62-a7b1-42ef-ba45-83a41a8d0906"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "683f0d60-810d-4a21-8f06-5d0299a47798"
+        },
+        {
+          "command": "store",
+          "target": "dateymd",
+          "value": "value",
+          "id": "e017ecfd-ae2f-4f70-81ef-2e3fe0767cec"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "ff2a0a4e-a7b4-4707-a9c1-98e209413654"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "b3f2f846-9f3f-41e3-abfe-a960ff54fdfe"
+        },
+        {
+          "command": "store",
+          "target": "demographics",
+          "value": "value",
+          "id": "8383cd7e-437d-48b6-9dd7-57cc45e384fd"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "1f95f1f4-d24c-4730-956d-a8bf18693c97"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "3ff762a7-983a-422f-8228-5dc98dc27a11"
+        },
+        {
+          "command": "store",
+          "target": "date_enrolled",
+          "value": "value",
+          "id": "446f08d8-9c41-4bbf-86e8-5f7bac9b3a2c"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "c3fbfb39-b717-4af4-8d75-8bfc77b46fdb"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Add field mapping')]",
+          "value": "",
+          "id": "89d94454-ca31-4605-a4d6-10c61bb896b8"
+        },
+        {
+          "command": "store",
+          "target": "5",
+          "value": "row",
+          "id": "ea83eae0-bf65-4e65-ab59-3b5fc7b9f1c2"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "8ed1884f-c686-4538-b51c-9437026fca21"
+        },
+        {
+          "command": "store",
+          "target": "datedmy",
+          "value": "value",
+          "id": "0d21d205-459d-4367-a39b-fbb29f7eba1e"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "8e9415fb-07e8-4fb0-91b9-b11b311b31aa"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "ba313034-48ce-43cd-9b7a-25f38915d181"
+        },
+        {
+          "command": "store",
+          "target": "baseline_data",
+          "value": "value",
+          "id": "1a79d79b-4142-4d37-b674-02ffe95634e2"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "607111f6-dc82-481f-be0f-d7325eb37c8a"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "7753464a-6ea9-49e2-b301-45e6dd4e23ad"
+        },
+        {
+          "command": "store",
+          "target": "date_visit_b",
+          "value": "value",
+          "id": "1a592f36-8962-4604-96a5-9021b151005c"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "0dabcc39-9cd2-4cff-83c1-8e55c061f759"
+        },
+        {
+          "command": "click",
+          "target": "xpath=(//*[@id='import-wrangler']//button[contains(.,'Add')])[4]",
+          "value": "",
+          "id": "4170f633-e870-45bc-9114-bdd86e3ff2d0"
+        },
+        {
+          "command": "click",
+          "target": "id=dateConversionEnabled",
+          "value": "",
+          "id": "a2a13c70-4a45-42a9-a0f7-5ce23f69c238"
+        },
+        {
+          "command": "select",
+          "target": "id=dateFormat",
+          "value": "value=DMY",
+          "id": "d16f8f62-9966-48a6-af6c-4af4032a4d95"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'modal')]//div[contains(.,'Value Mapping')]//button[contains(.,'Save')]",
+          "value": "",
+          "id": "7d037619-704a-4c18-91ca-d7d66ba970d9"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "c78ac73d-07f6-4c6e-a4e5-53763fa8954d"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(@class,'btn-success')][contains(.,'Save')]",
+          "value": "",
+          "id": "3faa1116-b8ca-4a1c-8f76-8a1e1c3c519d"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Import')]",
+          "value": "",
+          "id": "999e08b5-6b5d-4b85-aead-e992c67b6323"
+        },
+        {
+          "command": "type",
+          "target": "id=csv",
+          "value": "REPODIR/tests/testdata.csv",
+          "id": "1963d8a2-628f-40ef-a5e2-247ca372ff05"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//div[contains(@class,'mb-3')][contains(.,'Sortir')]",
+          "value": "",
+          "id": "ccfe255a-60c3-419c-a400-3989e79c2bf0"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify CSV preview.",
+          "value": "",
+          "id": "bbbab667-000b-4fbc-8b70-c562df87d71f"
+        },
+        {
+          "command": "//type",
+          "target": "css=div.mb-3",
+          "value": "SAVESCREENSHOT",
+          "id": "9cc3faaf-dccc-4e42-b4d6-729be0890dcd"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Import')]",
+          "value": "",
+          "id": "3acfd978-1d30-4e3a-9aed-cfef7a239c60"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//div[contains(@class,'alert-success')][contains(.,'Import Queued')]",
+          "value": "60000",
+          "id": "65229347-5292-43ea-8892-b1390275647f"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//a[contains(.,'View imports')]",
+          "value": "",
+          "id": "f00cc4d4-518b-4701-a611-670c5badf638"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]",
+          "value": "30000",
+          "id": "438dcab9-e708-48a0-907c-7f69b3f1a5e2"
+        },
+        {
+          "command": "run",
+          "target": "fn runcron",
+          "value": "",
+          "id": "76db0d42-a792-4210-b3e1-77e5d65061aa"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]//tr[contains(.,'Test1')][contains(.,'Completed')]",
+          "value": "",
+          "id": "db3388db-4c98-4098-8a93-6f785da2d74d"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify import completed.",
+          "value": "",
+          "id": "de651b04-e017-43e6-b72a-42658969835b"
+        },
+        {
+          "command": "//type",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]",
+          "value": "SAVESCREENSHOT",
+          "id": "3738f3ef-95d9-496a-b2ec-7cc5f5113271"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"DataEntry/record_status_dashboard.php\"]",
+          "value": "",
+          "id": "7ba27818-4c7c-4aec-b708-20b745cd4254"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"DataEntry/index.php\"][href*=\"id=11\"][href*=\"page=demographics\"]",
+          "value": "",
+          "id": "69088456-3f17-4a4d-a699-6331185bc0b6"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Assert value for First Name",
+          "value": "",
+          "id": "6fabe355-222d-41bf-8a00-1f97024462e4"
+        },
+        {
+          "command": "//type",
+          "target": "name=first_name",
+          "value": "SAVESCREENSHOT",
+          "id": "67f770c4-7afe-4729-853a-efee850173c2"
+        },
+        {
+          "command": "assertValue",
+          "target": "name=first_name",
+          "value": "Oublier",
+          "id": "aaeec28b-bd26-4830-a890-524344a0ef2a"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Assert value for Last Name",
+          "value": "",
+          "id": "edd64f42-238c-4179-90e1-55ff91ae8479"
+        },
+        {
+          "command": "//type",
+          "target": "name=last_name",
+          "value": "SAVESCREENSHOT",
+          "id": "bcf74b82-a632-43b7-a520-8f7307f0b0e1"
+        },
+        {
+          "command": "assertValue",
+          "target": "name=last_name",
+          "value": "Prendre Ri",
+          "id": "61b6fed8-8251-4c03-ad1e-f3a6976b77d3"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Assert value for Date",
+          "value": "",
+          "id": "73f223d4-a621-4b9f-b7b2-958f76c1668e"
+        },
+        {
+          "command": "//type",
+          "target": "name=date_enrolled",
+          "value": "SAVESCREENSHOT",
+          "id": "a6bac150-8682-4c37-b3e4-8917812904c6"
+        },
+        {
+          "command": "assertValue",
+          "target": "name=date_enrolled",
+          "value": "2002-06-14",
+          "id": "0722904a-aad2-41ae-bc9f-1b1d44800363"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"page=baseline_data\"]",
+          "value": "",
+          "id": "66ce0a39-dd30-4499-8ea6-6ec8ca705976"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Assert value for Date",
+          "value": "",
+          "id": "90ceabca-daba-4e04-b26b-9605737bc2fe"
+        },
+        {
+          "command": "//type",
+          "target": "name=date_visit_b",
+          "value": "SAVESCREENSHOT",
+          "id": "2d855cad-32c6-4f5f-94a2-296e582b1cb7"
+        },
+        {
+          "command": "assertValue",
+          "target": "name=date_visit_b",
+          "value": "2023-11-09",
+          "id": "3c675afb-aafb-4385-8cfe-1cbe97c2b5ff"
+        }
+      ]
+    },
+    {
+      "id": "dc46e397-c606-4aea-bb47-2dbaab66fc9e",
+      "name": "fn mappingselect",
+      "commands": [
+        {
+          "command": "waitForElementPresent",
+          "target": "css=table.table tbody tr",
+          "value": "30000",
+          "id": "8981d743-edb0-4107-a10b-5e5a7f84326b",
+          "comment": "Arguments: row, field (each 1-indexed), value"
+        },
+        {
+          "command": "runScript",
+          "target": "$('#import-wrangler .table tbody tr').each(function(i){$(this).attr('data-testing',''+(i+1))})",
+          "value": "",
+          "id": "a086ab89-3529-411b-9d0f-1c921bf46786",
+          "comment": ""
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "css=[data-testing=\"${row}\"]",
+          "value": "30000",
+          "id": "4d4a4277-d006-43ba-b6ce-2f0d4bc7a0e0"
+        },
+        {
+          "command": "runScript",
+          "target": "$('[data-testing=\"' + ${row} + '\"] select').eq(${field}-1)[0].value=${value}",
+          "value": "",
+          "id": "d6be3fb7-00b2-4a27-9e74-a7fcf4be972e"
+        },
+        {
+          "command": "runScript",
+          "target": "$('[data-testing=\"' + ${row} + '\"] select').eq(${field}-1)[0].dispatchEvent(new Event('change', { bubbles: true }))",
+          "value": "",
+          "id": "8ae8e988-9be3-458b-8600-1f6341663d2a"
+        },
+        {
+          "command": "pause",
+          "target": "500",
+          "value": "",
+          "id": "69a60f9d-2938-4bdd-a2f1-52a93b7021ee"
+        },
+        {
+          "command": "runScript",
+          "target": "$('#import-wrangler .table tbody tr').each(function(i){$(this).attr('data-testing',''+(i+1))})",
+          "value": "",
+          "comment": "",
+          "id": "37719acc-415a-4985-bb6d-ef9e180dc9c5"
+        },
+        {
+          "command": "runScript",
+          "target": "$('[data-testing=\"' + ${row} + '\"] select').eq(${field}-1).attr('data-screenshot','1')",
+          "value": "",
+          "id": "4e46a33c-5d83-4f84-b0dc-da6a74924f4c"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Select \"${value}\"",
+          "value": "",
+          "id": "789916fa-aa51-40a9-b874-54d3d5ee51cc"
+        },
+        {
+          "command": "//type",
+          "target": "css=[data-screenshot=\"1\"]",
+          "value": "SAVESCREENSHOT",
+          "id": "eed4cfaa-acb4-47fe-be4e-579fde79cd46"
+        },
+        {
+          "command": "runScript",
+          "target": "$('[data-testing=\"' + ${row} + '\"] select').eq(${field}-1).attr('data-screenshot','0')",
+          "value": "",
+          "id": "5786847c-4a8c-4020-808f-f1fc14831fb0"
+        }
+      ]
+    },
+    {
+      "id": "0ec6441a-fa5b-49ed-8445-359c72b6ed3f",
+      "name": "t02 Import into longitudinal project",
+      "commands": [
+        {
+          "id": "a60ad833-ec6a-42ac-ad58-8376f158a325",
+          "command": "open",
+          "target": "/",
+          "value": ""
+        },
+        {
+          "command": "click",
+          "target": "linkText=My Projects",
+          "value": "",
+          "id": "7b00b68a-05e6-4bad-9b12-31bcab5828a9"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//*[@id='table-proj_table'][contains(.,'Import Mapper Test L')]",
+          "value": "",
+          "id": "afe3f228-47a8-42f5-a316-697b1a2c050d"
+        },
+        {
+          "command": "click",
+          "target": "linkText=Import Mapper Test L",
+          "value": "",
+          "id": "f8c8f7c9-bf82-4488-acbb-cd4fba20ea38"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"prefix=import_mapper\"][href*=\"page=pages%2Fdashboard\"]",
+          "value": "",
+          "id": "bcb6e64c-7d82-42e8-a78c-84d2d3ac5dc8"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'New mapping')]",
+          "value": "",
+          "id": "600ac2ed-37db-404b-9687-d2a00a93377c"
+        },
+        {
+          "command": "sendKeys",
+          "target": "id=map-name",
+          "value": "${KEY_LEFT}Test2a",
+          "id": "262c9808-f016-4f99-aed3-84900de709b8"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "2854a309-d543-4338-9dae-6aa49003c928"
+        },
+        {
+          "command": "type",
+          "target": "id=csv",
+          "value": "REPODIR/tests/testdata.csv",
+          "id": "4c30aca4-6e96-42fc-a1c3-b9df587ffe6f"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "css=.alert-success",
+          "value": "30000",
+          "id": "aff6ae6e-da94-4a65-8757-d4b69f092672"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify CSV fields.",
+          "value": "",
+          "id": "86e1437f-b960-4b34-a0bb-a6aeebeee85d"
+        },
+        {
+          "command": "//type",
+          "target": "css=div.mb-3",
+          "value": "SAVESCREENSHOT",
+          "id": "718cda39-17c2-48fd-a4d6-d604a4a83ca7"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "137e577f-f1c5-4043-832f-db199fe7e0ee"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "row",
+          "id": "b803808d-670d-44ec-bdd5-c5a6ab976476"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "aaaba8af-efd6-45cb-aa23-233b8886772d"
+        },
+        {
+          "command": "store",
+          "target": "int2",
+          "value": "value",
+          "id": "1cd8a2f7-dea6-4f09-ae8e-c8a6851eb9d9"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "0c9ee82a-3ea1-45b9-972d-32e794abd5ca"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "e4a8bb42-970d-4d55-8713-345cf2e0588a"
+        },
+        {
+          "command": "store",
+          "target": "enrollment_arm_1",
+          "value": "value",
+          "id": "9c91fc4c-bc47-4a3d-8e74-8a331bd01de3"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "b6a0e679-4cb3-464d-b62b-9bc1a4fff7f8"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "12b27547-a1d1-4aec-b50f-a7ba1a6ade9b"
+        },
+        {
+          "command": "store",
+          "target": "demographics",
+          "value": "value",
+          "id": "9f2e51ae-c2e4-4686-9dc8-fcb741f64197"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "5df4adb0-5c25-4ccc-998c-97950102e300"
+        },
+        {
+          "command": "store",
+          "target": "4",
+          "value": "field",
+          "id": "36eb2d2f-ef3e-458e-8ee6-84fbaf1a071c"
+        },
+        {
+          "command": "store",
+          "target": "study_id",
+          "value": "value",
+          "id": "63057a89-c60b-43ae-ac9c-b0082bd3d6aa"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "3c5c5b6d-c3fd-4453-b1d9-76bae6f60809"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Add field mapping')]",
+          "value": "",
+          "id": "8d4bc203-d87e-4e01-8490-96b02c797db8"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "row",
+          "id": "138898ac-b0b0-4ec9-907f-a9bb98c852d9"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "5bace655-2d11-46ef-966c-0e31d3670bb7"
+        },
+        {
+          "command": "store",
+          "target": "string1",
+          "value": "value",
+          "id": "37e157ee-991e-40b1-a7f1-050c8831d4ba"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "8890e091-3f8a-4226-866e-8c0c3c0a6803"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "af80eca2-8259-494f-85ec-543527498ba8"
+        },
+        {
+          "command": "store",
+          "target": "enrollment_arm_1",
+          "value": "value",
+          "id": "c0673e91-2a9f-446b-9185-34d206e6b5f9"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "065b2f60-698b-4461-8f89-8dec13cdc56e"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "30700e2d-8fc4-495a-bc52-c31ae0c9fb60"
+        },
+        {
+          "command": "store",
+          "target": "demographics",
+          "value": "value",
+          "id": "a68dbc13-1516-4048-8a40-5046ac5a4c24"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "648ed254-808e-452c-825f-5b491829637f"
+        },
+        {
+          "command": "store",
+          "target": "4",
+          "value": "field",
+          "id": "f6329a14-9aa2-4e17-b8ed-830fc64af2db"
+        },
+        {
+          "command": "store",
+          "target": "first_name",
+          "value": "value",
+          "id": "3a84e38f-023c-40bc-87f1-3387ee1ac7ce"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "73dd7b44-9e19-4ba3-8364-e7e552bc7b05"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Add field mapping')]",
+          "value": "",
+          "id": "a064b182-3476-43fd-8cdd-2d6b94f10a5f"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "row",
+          "id": "7920446a-9552-4c07-8b34-fad0947763a1"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "6460f214-d4e4-4f98-94fe-cdda5cc083dc"
+        },
+        {
+          "command": "store",
+          "target": "string2",
+          "value": "value",
+          "id": "ed0480a8-1d10-4b44-8579-be0129caeccf"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "ddc61325-0449-492e-8ef5-f3e4a1e4f6c7"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "576a8405-326f-42d6-b61c-1e0a53fe04da"
+        },
+        {
+          "command": "store",
+          "target": "enrollment_arm_1",
+          "value": "value",
+          "id": "9e76b483-a4c4-4646-8ebf-810b634b0b8e"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "3bf8bb0e-ff43-4486-86fa-0ca04fb86fab"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "f7dae7b1-96df-4922-8443-5389260e9dff"
+        },
+        {
+          "command": "store",
+          "target": "demographics",
+          "value": "value",
+          "id": "df7b1592-a521-4f8b-b01a-9ebee4087d1c"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "df858772-3bc9-4b0a-912b-232fda8e8d71"
+        },
+        {
+          "command": "store",
+          "target": "4",
+          "value": "field",
+          "id": "3a37b23e-742a-4a7b-be38-5fc17e3f3113"
+        },
+        {
+          "command": "store",
+          "target": "last_name",
+          "value": "value",
+          "id": "f53b5c23-f045-4d4d-b0cb-23a67853de80"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "43c0b460-32bf-498e-9f49-5c11944ce8cc"
+        },
+        {
+          "command": "click",
+          "target": "xpath=(//*[@id='import-wrangler']//button[contains(.,'Add')])[3]",
+          "value": "",
+          "id": "62c6f5f3-cdd0-43d1-88d9-a55eee941aed"
+        },
+        {
+          "command": "click",
+          "target": "id=combineEnabled",
+          "value": "",
+          "id": "4a040161-67e3-4bf4-b9da-d39b3cf23500"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'modal')]//div[contains(.,'Additional Fields')]//button[contains(.,'Add Field')]",
+          "value": "",
+          "id": "0d166186-4330-4338-b984-d50959cdd634"
+        },
+        {
+          "command": "select",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'modal')]//div[contains(.,'Additional Fields')]//select",
+          "value": "value=string3",
+          "id": "256cbad0-376e-49aa-ae6f-e994a1fc7695"
+        },
+        {
+          "command": "check",
+          "target": "id=fieldRegex-0",
+          "value": "",
+          "id": "fa838f45-707a-4935-8853-6c2fbfeebfb7"
+        },
+        {
+          "command": "sendKeys",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'modal')]//div[contains(.,'Additional Fields')]//input[contains(@placeholder,'Pattern')]",
+          "value": "${KEY_LEFT}/^(..).*/",
+          "id": "df8505d0-d87f-4c65-95ae-ac3d86449245"
+        },
+        {
+          "command": "sendKeys",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'modal')]//div[contains(.,'Additional Fields')]//input[contains(@placeholder,'Replacement')]",
+          "value": "${KEY_LEFT}$1",
+          "id": "88b551c3-f128-4a3d-bc21-e079cce6c401"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'modal')]//div[contains(.,'Additional Fields')]//button[contains(.,'Save')]",
+          "value": "",
+          "id": "beab5a19-7f60-44a6-8f2b-145e43537b50"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Add field mapping')]",
+          "value": "",
+          "id": "5866ec1d-c633-4c0f-8d43-0ab2082e3f96"
+        },
+        {
+          "command": "store",
+          "target": "4",
+          "value": "row",
+          "id": "bdae376c-1ce2-4f8b-96ca-bc5c14c5158f"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "3d54f0d8-1ae4-49e5-b9ee-3b615effe4e8"
+        },
+        {
+          "command": "store",
+          "target": "dateymd",
+          "value": "value",
+          "id": "1c0b110d-eeff-45e0-9f0f-e07219e1513d"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "c11d9af3-fd1e-4f3a-b8cf-5f0533d40328"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "b8cc4ea9-6717-4a56-be41-e123de2f7856"
+        },
+        {
+          "command": "store",
+          "target": "enrollment_arm_1",
+          "value": "value",
+          "id": "1eb0652e-48ae-4ae6-bbd2-e3ae839185d1"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "5c4b9aab-2fd2-4a36-bf83-d927628895d8"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "5255d04c-f58a-4cf8-afce-be16a0a62593"
+        },
+        {
+          "command": "store",
+          "target": "demographics",
+          "value": "value",
+          "id": "ed51b04a-99b2-4339-b50e-5e8ae7492836"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "0002d469-9f9a-4085-ad4c-99b3c143425d"
+        },
+        {
+          "command": "store",
+          "target": "4",
+          "value": "field",
+          "id": "0082cf0a-6a43-4040-9c47-d493546d6ef3"
+        },
+        {
+          "command": "store",
+          "target": "date_enrolled",
+          "value": "value",
+          "id": "4745df4c-9ee9-4717-bb2c-1bf03f09ca5e"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "a9574ade-ed8d-4661-9775-58bb998dbbe2"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "2c09a9e9-1f7c-4398-bceb-662abdf4da13"
+        },
+        {
+          "command": "check",
+          "target": "css=input[aria-label=\"Enable record matching\"]",
+          "value": "",
+          "id": "9886f7b0-6ffc-42a3-bff9-cb3d7cf15c9d"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "row",
+          "id": "1c01adc3-6aad-4272-887c-b2533f2551c6"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "fab0927f-8eca-46d9-b221-0dac8cb4b7ae"
+        },
+        {
+          "command": "store",
+          "target": "enrollment_arm_1",
+          "value": "value",
+          "id": "5391a967-c352-45a3-af02-ee6b3a0681b8"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "d2c5877d-1055-4b7d-91e7-c3f21f9cf680"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "2a3dc8cf-733a-49e9-a60d-feeb8901e0e5"
+        },
+        {
+          "command": "store",
+          "target": "demographics",
+          "value": "value",
+          "id": "2b3aa156-b3a9-4189-b755-0e1737514207"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "d6fb66c4-e030-4d26-9d48-f0b2575b5934"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "ac257a32-568a-4c01-836e-a32aee09d09e"
+        },
+        {
+          "command": "store",
+          "target": "int2::enrollment_arm_1::study_id",
+          "value": "value",
+          "id": "2b3090e6-8e6c-4f31-ba26-519c8e1536a0"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "749e2af4-4555-459a-bf50-8b4355119418"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(@class,'btn-success')][contains(.,'Save')]",
+          "value": "",
+          "id": "d939cb8a-3850-4d29-8f03-5688f7d4713d"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'New mapping')]",
+          "value": "",
+          "id": "82fa73ca-506a-4e77-be86-45fdb5627499"
+        },
+        {
+          "command": "sendKeys",
+          "target": "id=map-name",
+          "value": "${KEY_LEFT}Test2b",
+          "id": "97701fa2-8564-4f8a-94ab-f9fcc4d84a1a"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "a2a3021b-d94d-4085-9b9b-f7d0faa4eb22"
+        },
+        {
+          "command": "type",
+          "target": "id=csv",
+          "value": "REPODIR/tests/testdata.csv",
+          "id": "edbf4760-def9-4f66-9e36-5a97741c7a0a"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "css=.alert-success",
+          "value": "30000",
+          "id": "ecadf36d-0cbf-4b80-9b03-93c145ac1057"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify CSV fields.",
+          "value": "",
+          "id": "18fbfb3d-b50b-45a1-9878-ba730096b610"
+        },
+        {
+          "command": "//type",
+          "target": "css=div.mb-3",
+          "value": "SAVESCREENSHOT",
+          "id": "547deb36-0df2-4188-b180-e05c6ab0f45b"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "c6f3d6b4-f5b9-4aff-8e3e-70319d85bfe1"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "row",
+          "id": "910039cd-1e5c-4238-a9d2-de583e00b3c8"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "c598a803-384c-4d1c-9b80-1ceaa8ca2c70"
+        },
+        {
+          "command": "store",
+          "target": "int2",
+          "value": "value",
+          "id": "702fc7eb-9936-4232-90f8-fc8513374517"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "56b1730c-8718-48dc-9106-87e18c635cc9"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "8f3ecdf6-d98d-4e67-820c-98d38be8e255"
+        },
+        {
+          "command": "store",
+          "target": "enrollment_arm_1",
+          "value": "value",
+          "id": "a6a9564f-8486-463b-a6fe-9ed7deb17428"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "6005a648-933e-439d-96fe-a58f6183583c"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "7ac9300c-80e4-4c31-8941-b53cbacd1fdd"
+        },
+        {
+          "command": "store",
+          "target": "demographics",
+          "value": "value",
+          "id": "be90ee0a-7c98-4b18-81e0-cda0d452b64d"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "760a8165-6fb9-476d-8f2b-7c5511a82870"
+        },
+        {
+          "command": "store",
+          "target": "4",
+          "value": "field",
+          "id": "49685e77-51f3-4b8b-ba1d-083f28eb874d"
+        },
+        {
+          "command": "store",
+          "target": "study_id",
+          "value": "value",
+          "id": "6e893f78-2144-4416-af9e-2ed69f2daf36"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "8a2d6880-13b8-4c30-b36a-2664cca6e919"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Add field mapping')]",
+          "value": "",
+          "id": "4429c7ef-cfdc-4255-8f77-d3c3c028158c"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "row",
+          "id": "1608c1b4-50a2-415b-ad59-190aa131eaed"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "5e01a87e-a2f8-4925-9b32-0107fe6f5ce8"
+        },
+        {
+          "command": "store",
+          "target": "datedmy",
+          "value": "value",
+          "id": "c1ed3e72-760a-4814-946c-95ac86803c22"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "79db3a3c-e30b-4e04-807c-d4fda08e2aaa"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "707fc5a6-eff9-4972-9a5a-f35ed10af21f"
+        },
+        {
+          "command": "store",
+          "target": "final_visit_arm_1",
+          "value": "value",
+          "id": "f30cdf78-f3d7-40c6-91c7-59234ed2ea0e"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "ec2aff2a-e514-4c1d-ab09-07760c270359"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "b99c25ef-c195-4320-b1bf-44a8a4e27317"
+        },
+        {
+          "command": "store",
+          "target": "completion_data",
+          "value": "value",
+          "id": "9e083777-6602-4ab0-9466-210504c79ec4"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "916516a6-35d6-4d87-93fb-069bdee1cb46"
+        },
+        {
+          "command": "store",
+          "target": "4",
+          "value": "field",
+          "id": "00440252-2d62-452d-9b24-45453e8da4aa"
+        },
+        {
+          "command": "store",
+          "target": "date_visit_4",
+          "value": "value",
+          "id": "ccaf5c4a-71ef-48d9-a8c5-8095b3104c57"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "3b4cfbbe-0897-4c0a-98f2-dfd7fa585131"
+        },
+        {
+          "command": "click",
+          "target": "xpath=(//*[@id='import-wrangler']//button[contains(.,'Add')])[2]",
+          "value": "",
+          "id": "844e38eb-f613-48b1-a751-069a54bd14b9"
+        },
+        {
+          "command": "click",
+          "target": "id=dateConversionEnabled",
+          "value": "",
+          "id": "cab0ee56-d6bc-43d9-a2cb-7027709aa27b"
+        },
+        {
+          "command": "select",
+          "target": "id=dateFormat",
+          "value": "value=DMY",
+          "id": "1ba6cd26-60b9-4d31-846e-cbae03ccf507"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'modal')]//div[contains(.,'Value Mapping')]//button[contains(.,'Save')]",
+          "value": "",
+          "id": "1f93f6f1-6796-4c6a-952f-1c5c37aca440"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "8fb7f68d-22a4-478b-b558-314351f708c0"
+        },
+        {
+          "command": "check",
+          "target": "css=input[aria-label=\"Enable record matching\"]",
+          "value": "",
+          "id": "c17975b8-513a-4d91-88e2-a6b7622fa9be"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "row",
+          "id": "26e95387-e54e-4d8b-b0f3-12cb20de0143"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "3b31cc6b-c528-4716-b04e-929802363774"
+        },
+        {
+          "command": "store",
+          "target": "enrollment_arm_1",
+          "value": "value",
+          "id": "2afaac6d-d227-4fc1-96a9-18fe272ab9e6"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "307419a7-b588-4bb9-ab42-fb1ae7a1897c"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "fdae73cb-67f0-4f92-be8b-4cdc0a11cc64"
+        },
+        {
+          "command": "store",
+          "target": "demographics",
+          "value": "value",
+          "id": "88114f1c-fcc8-4dce-afeb-c2f349d924ac"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "798a6f91-156e-476a-912c-743b4d95e885"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "42ef2913-e0db-4297-89a0-dd5e17164a9e"
+        },
+        {
+          "command": "store",
+          "target": "int2::enrollment_arm_1::study_id",
+          "value": "value",
+          "id": "dd6eeda5-3bc9-41be-b34e-eafa5ac24b80"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "798a90e3-f47b-4eae-9fa0-f100150bac7b"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(@class,'btn-success')][contains(.,'Save')]",
+          "value": "",
+          "id": "edf849d9-6930-4920-af2f-dd5b95c62914"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'card-header')][contains(.,'Test2a')]//button[contains(.,'Import')]",
+          "value": "",
+          "id": "2b9172ca-6e57-4591-b53c-ec903bde0535"
+        },
+        {
+          "command": "type",
+          "target": "id=csv",
+          "value": "REPODIR/tests/testdata.csv",
+          "id": "75151ab7-3bfe-4411-96f4-2e0d243a7abe"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//div[contains(@class,'mb-3')][contains(.,'Sortir')]",
+          "value": "",
+          "id": "49d62b72-90b6-465d-8341-40d684e451d9"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify CSV preview.",
+          "value": "",
+          "id": "045265fd-6014-4c53-ab4f-776b47e4db1a"
+        },
+        {
+          "command": "//type",
+          "target": "css=div.mb-3",
+          "value": "SAVESCREENSHOT",
+          "id": "9afc2fe9-5d19-4db0-abaa-d2b752a0ca6a"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Import')]",
+          "value": "",
+          "id": "2476f59f-65d9-4a22-ab61-c6c5cb5ad57b"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//div[contains(@class,'alert-success')][contains(.,'Import Queued')]",
+          "value": "60000",
+          "id": "86a44157-6943-4c24-b969-e840ff565221"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//a[contains(.,'View imports')]",
+          "value": "",
+          "id": "9235eb2e-5ae6-4195-950e-ec827e0c3330"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]",
+          "value": "30000",
+          "id": "9f81909e-e8a9-45f6-9da6-cdb5ec620659"
+        },
+        {
+          "command": "run",
+          "target": "fn runcron",
+          "value": "",
+          "id": "68895dc6-b4cf-4f21-947e-4112ed89d335"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]//tr[contains(.,'Test2a')][contains(.,'Completed')]",
+          "value": "",
+          "id": "52322d39-5e30-4fca-be17-79d9efe882d9"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify import completed.",
+          "value": "",
+          "id": "4daf7b76-fb8b-4076-87d8-1d6b6644a8c6"
+        },
+        {
+          "command": "//type",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]",
+          "value": "SAVESCREENSHOT",
+          "id": "46f64f8b-7ac9-40b7-9b80-8106a8be66a2"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//a[@href='/'][contains(.,'Mappings')]",
+          "value": "",
+          "id": "e04ebd9c-9c05-4b68-8cf0-c2126b242988"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'card-header')][contains(.,'Test2b')]//button[contains(.,'Import')]",
+          "value": "",
+          "id": "b9e4c7d6-2ab4-46b3-ac01-cfe579cada43"
+        },
+        {
+          "command": "type",
+          "target": "id=csv",
+          "value": "REPODIR/tests/testdata.csv",
+          "id": "c9d11b6a-252b-41d3-8820-9c72b970781d"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//div[contains(@class,'mb-3')][contains(.,'Sortir')]",
+          "value": "",
+          "id": "d4a89223-872b-45da-91ec-354fb8b204b6"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify CSV preview.",
+          "value": "",
+          "id": "6a986cf6-88dd-4c67-ad5c-e07dc98f85a4"
+        },
+        {
+          "command": "//type",
+          "target": "css=div.mb-3",
+          "value": "SAVESCREENSHOT",
+          "id": "af41a96f-85fd-4ec0-b184-5ba0a087e77a"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Import')]",
+          "value": "",
+          "id": "ee4c582d-57d9-4deb-aef9-be91aa17ebae"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//div[contains(@class,'alert-success')][contains(.,'Import Queued')]",
+          "value": "60000",
+          "id": "a00ae1ff-684b-4e85-a33b-f2c3b8cb3128"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//a[contains(.,'View imports')]",
+          "value": "",
+          "id": "7d755c60-7751-4c93-ada4-e171c7f81670"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]",
+          "value": "30000",
+          "id": "4bf4558b-b4ff-48ca-9bc7-8df854a833a2"
+        },
+        {
+          "command": "run",
+          "target": "fn runcron",
+          "value": "",
+          "id": "af9ca250-f490-4e22-94ea-d3747ddf1e16"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]//tr[contains(.,'Test2b')][contains(.,'Completed')]",
+          "value": "",
+          "id": "a8386b04-555f-4724-9d4b-5a845e1bff36"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify import completed.",
+          "value": "",
+          "id": "d10d64c2-8dd4-4cea-91a0-4ba7aaad05f7"
+        },
+        {
+          "command": "//type",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]",
+          "value": "SAVESCREENSHOT",
+          "id": "3999ad43-1a2f-4e07-9c31-e46e5ee5955d"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"DataEntry/record_status_dashboard.php\"]",
+          "value": "",
+          "id": "27404ad4-72e4-4f34-87b1-f76ba2717554"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"DataEntry/index.php\"][href*=\"id=11\"][href*=\"page=demographics\"]",
+          "value": "",
+          "id": "47bb6148-aefe-46c6-b6d7-d1f26adaec15"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Assert value for First Name",
+          "value": "",
+          "id": "5636f6ce-5a18-4cae-952b-a31043004af5"
+        },
+        {
+          "command": "//type",
+          "target": "name=first_name",
+          "value": "SAVESCREENSHOT",
+          "id": "faaf08e2-91a7-4177-b8dd-b08a3a5483c6"
+        },
+        {
+          "command": "assertValue",
+          "target": "name=first_name",
+          "value": "Oublier",
+          "id": "2d4e10d1-2ba5-4119-9991-5a50c000b415"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Assert value for Last Name",
+          "value": "",
+          "id": "3350e3e9-6b9d-4c19-baa0-ed48b4edb6bd"
+        },
+        {
+          "command": "//type",
+          "target": "name=last_name",
+          "value": "SAVESCREENSHOT",
+          "id": "438a99fa-501b-404b-b01c-13414ac84c27"
+        },
+        {
+          "command": "assertValue",
+          "target": "name=last_name",
+          "value": "Prendre Ri",
+          "id": "97894a75-379c-4a48-aa81-5ee8cd253bdd"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Assert value for Date",
+          "value": "",
+          "id": "8f763bc3-0a4c-4c3c-8b31-90e49ab36de1"
+        },
+        {
+          "command": "//type",
+          "target": "name=date_enrolled",
+          "value": "SAVESCREENSHOT",
+          "id": "6153d1fc-4e9e-4a3f-87f9-2bbeae1c24e3"
+        },
+        {
+          "command": "assertValue",
+          "target": "name=date_enrolled",
+          "value": "2002-06-14",
+          "id": "2e0ed1d1-d72f-45bd-9bd7-92a0f423df91"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"DataEntry/record_home.php\"][href*=\"id=11\"]",
+          "value": "",
+          "id": "166974d9-294e-46b7-b801-1572711264aa"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"DataEntry/index.php\"][href*=\"id=11\"][href*=\"page=completion_data\"]",
+          "value": "",
+          "id": "bc2c82d5-4b26-46ad-bec0-26bef7345a26"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Assert value for Date",
+          "value": "",
+          "id": "80d0125f-c161-4534-80f5-6cef2f16c4d9"
+        },
+        {
+          "command": "//type",
+          "target": "name=date_visit_4",
+          "value": "SAVESCREENSHOT",
+          "id": "b5592822-f55a-4ca1-9063-6b4628babf95"
+        },
+        {
+          "command": "assertValue",
+          "target": "name=date_visit_4",
+          "value": "2023-11-09",
+          "id": "86e616e0-81d3-4f86-b574-88d430213cb6"
+        }
+      ]
+    },
+    {
+      "id": "fed31983-0c27-473c-915e-cf81210cfe17",
+      "name": "t03 Import repeating into classic project",
+      "commands": [
+        {
+          "id": "c7c94d86-a21c-437a-b69d-faff05b59269",
+          "command": "open",
+          "target": "/",
+          "value": ""
+        },
+        {
+          "command": "click",
+          "target": "linkText=My Projects",
+          "value": "",
+          "id": "39bc109e-7d52-47a4-80ac-67c511fa6729"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//*[@id='table-proj_table'][contains(.,'Import Mapper Test C')]",
+          "value": "",
+          "id": "6e22f4b8-b5f6-466b-8bef-0f288ab778cb"
+        },
+        {
+          "command": "click",
+          "target": "linkText=Import Mapper Test C",
+          "value": "",
+          "id": "bb134bce-4144-417b-a82b-690c4772928d"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"prefix=import_mapper\"][href*=\"page=pages%2Fdashboard\"]",
+          "value": "",
+          "id": "51cb6712-e8e1-409d-a267-25481466aa22"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'New mapping')]",
+          "value": "",
+          "id": "b2c30df0-5cee-49d4-8a13-b0d69b5230c0"
+        },
+        {
+          "command": "sendKeys",
+          "target": "id=map-name",
+          "value": "${KEY_LEFT}Test3a",
+          "id": "d5712154-a158-4846-abcd-d2aa7e52e173"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "ac8c4398-56fc-4159-a56a-c5484927d2a3"
+        },
+        {
+          "command": "type",
+          "target": "id=csv",
+          "value": "REPODIR/tests/testdata2.csv",
+          "id": "eb837e5b-a486-4e6d-b8c7-2f3cff71bcb3"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "css=.alert-success",
+          "value": "30000",
+          "id": "3f5845b8-78d9-4713-b9ef-e225c35ca962"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify CSV fields.",
+          "value": "",
+          "id": "1a10054f-8abc-43af-a494-08cf00cd7e4f"
+        },
+        {
+          "command": "//type",
+          "target": "css=div.mb-3",
+          "value": "SAVESCREENSHOT",
+          "id": "2e53b347-6dbc-4fb3-ab0f-e3137533ca9c"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "75fc582b-95df-41fb-a71d-76a80447a9c1"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "row",
+          "id": "f227878e-ca7a-47a3-946a-b811d3ce47a9"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "b5b5217d-2cab-4874-bfba-6ec1ff0a63dc"
+        },
+        {
+          "command": "store",
+          "target": "int2",
+          "value": "value",
+          "id": "8352034c-da6f-4276-a96e-5f34670f4d73"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "e6a86603-f6a5-4fa2-ab3d-fea278702715"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "e3f1f0a0-d4bd-4e68-b42c-513e119e3278"
+        },
+        {
+          "command": "store",
+          "target": "demographics",
+          "value": "value",
+          "id": "f3d85ea9-8c74-41d9-849c-0a32eb2a032b"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "ed59d040-0262-4c50-9644-dd79a87de01e"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "aa4f0f73-73d1-4762-8549-0de58d135ba3"
+        },
+        {
+          "command": "store",
+          "target": "study_id",
+          "value": "value",
+          "id": "d1ba4fd8-c181-47f1-8fa4-36cf99a6ddec"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "8957f8d2-4d7a-4c7b-9d9d-38f49dc7d2a9"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Add field mapping')]",
+          "value": "",
+          "id": "c5408efb-9d1a-4e91-b920-1f78e7b72c26"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "row",
+          "id": "aceb7005-cd64-4e98-8431-67c0fa868521"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "91d3f5eb-f337-4b9c-89fc-e8cab97961ee"
+        },
+        {
+          "command": "store",
+          "target": "string1",
+          "value": "value",
+          "id": "a6dea95d-fe8e-4d3d-ab56-7efd50d152ea"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "f4048bf2-e2f7-4283-97f3-91952079f81b"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "c96e4f4f-39b9-4df4-a051-63434b50a63f"
+        },
+        {
+          "command": "store",
+          "target": "demographics",
+          "value": "value",
+          "id": "74a724e5-0f2c-4ae1-9a05-a36e860a3c00"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "7577136d-da16-4beb-a957-30eac177acca"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "4c37c4b3-71dc-4167-8c4a-910577c4186c"
+        },
+        {
+          "command": "store",
+          "target": "first_name",
+          "value": "value",
+          "id": "1e86731a-4e2d-4e83-9d36-99cfae57e144"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "93a2dd75-d59a-4ad5-986c-985ce41f880c"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "f45e9c69-a57e-4b6b-9471-1ca8240401fb"
+        },
+        {
+          "command": "check",
+          "target": "css=input[aria-label=\"Enable record matching\"]",
+          "value": "",
+          "id": "ffadf509-0cce-46f6-80b6-21a7eb323e22"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "row",
+          "id": "87b3d415-7bb4-4fa0-afef-aea5dce154e8"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "a5539aad-4e74-4807-9cd7-872f372a5f48"
+        },
+        {
+          "command": "store",
+          "target": "demographics",
+          "value": "value",
+          "id": "d82f0ee9-7780-4b90-acee-8c75c6adefd9"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "7c818876-6250-4ee0-9701-f66504c7200a"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "763b8e3e-7de1-4574-8de5-c806cc7e6d55"
+        },
+        {
+          "command": "store",
+          "target": "string1::first_name",
+          "value": "value",
+          "id": "585c26c6-590c-44ff-a6c3-1dfed32a4fac"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "a07b0eb3-ff7e-470c-a223-5122e1f3f088"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(@class,'btn-success')][contains(.,'Save')]",
+          "value": "",
+          "id": "6e3ee759-a851-430f-8d32-0bf32fcdd6d9"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'New mapping')]",
+          "value": "",
+          "id": "41aed9d6-7a9a-4248-b452-a4575e396215"
+        },
+        {
+          "command": "sendKeys",
+          "target": "id=map-name",
+          "value": "${KEY_LEFT}Test3b",
+          "id": "0df155f8-22e9-4faa-a422-35f946dc2cd8"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "d816c391-f704-4b0f-9c6b-d99ac28319bd"
+        },
+        {
+          "command": "type",
+          "target": "id=csv",
+          "value": "REPODIR/tests/testdata2.csv",
+          "id": "1229e274-96d1-4cf8-ab22-efcb9fddb14e"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "css=.alert-success",
+          "value": "30000",
+          "id": "4cb705b6-dc7c-4a82-99f5-1bd179fc27be"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify CSV fields.",
+          "value": "",
+          "id": "2b702869-41d6-4d1f-8414-4f37944052a6"
+        },
+        {
+          "command": "//type",
+          "target": "css=div.mb-3",
+          "value": "SAVESCREENSHOT",
+          "id": "649dca03-019d-47c5-99d4-071df6905a17"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "0780fcc2-abf0-43dc-92a6-2e971a471fe6"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "row",
+          "id": "149c8dfd-30d4-4ea4-a095-962485a7b974"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "ebecd507-316e-41a6-87a6-0f08492b8900"
+        },
+        {
+          "command": "store",
+          "target": "string1",
+          "value": "value",
+          "id": "7c59dd54-4b3c-4cef-93a3-f75fd63681c3"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "48fbfac0-9fe3-4380-80e2-87da9868497a"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "88ef63d4-44d0-47ef-93ca-6d713b1ca137"
+        },
+        {
+          "command": "store",
+          "target": "demographics",
+          "value": "value",
+          "id": "ff873c7a-b17c-4c19-903f-6d0210be5142"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "7f9629af-7352-4e9f-ad48-b57551b0f611"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "8c2ea09a-e0b8-4479-aaf3-09fafc9fe169"
+        },
+        {
+          "command": "store",
+          "target": "first_name",
+          "value": "value",
+          "id": "693209a4-c41a-40e5-97b0-c7ca62bfa6b4"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "1146ca63-e3f3-4585-8a75-5d6a435c32ec"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Add field mapping')]",
+          "value": "",
+          "id": "f4860fc1-b8a4-4187-898d-ba1ff798f968"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "row",
+          "id": "31ee875e-60b0-46dd-b63a-ffd5c575614f"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "fcebbd26-e302-4c38-b0f2-4919a610f652"
+        },
+        {
+          "command": "store",
+          "target": "dateymd",
+          "value": "value",
+          "id": "0acd2c7e-48c4-4dbc-97f6-17abb950c6b9"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "e948fe1f-d734-466f-a5c0-7c7997f0626c"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "dcfd4f24-7f35-4456-b560-e169e59ec8e3"
+        },
+        {
+          "command": "store",
+          "target": "month_2_data",
+          "value": "value",
+          "id": "9bb7c5e1-4f24-421a-8d02-fe344031a863"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "a60ee603-06a6-4e41-bd5d-fe438f5fa958"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "ebec05f8-ca4d-4884-a310-f66270a500c2"
+        },
+        {
+          "command": "store",
+          "target": "date_visit_2",
+          "value": "value",
+          "id": "2cc6598e-b8a3-49ba-8dc7-ebb6130d46bf"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "4add11dc-db18-44a4-8407-d40618ee8dd5"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Add field mapping')]",
+          "value": "",
+          "id": "f407fbcb-a303-4b6a-b90a-f8c0fd65a764"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "row",
+          "id": "9812fe31-594f-4c41-ab04-7b9582f1628b"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "0cf589d6-485d-488b-b549-d6256414754c"
+        },
+        {
+          "command": "store",
+          "target": "int1",
+          "value": "value",
+          "id": "5d6858d5-e32f-4a79-bd51-2b48b11c1300"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "a7f448aa-4862-4f9d-b285-f5a755d9cf16"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "f9fcdd1f-080f-4f8f-b899-e09ef732c11a"
+        },
+        {
+          "command": "store",
+          "target": "month_2_data",
+          "value": "value",
+          "id": "9e71577c-da7e-47a6-b8ac-1e23a8aef45d"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "21f5fd1e-3c23-45b8-b37f-58ed743d7246"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "fc610944-b7f7-4b86-92d2-10d6d698bcdf"
+        },
+        {
+          "command": "store",
+          "target": "drywt_2",
+          "value": "value",
+          "id": "ead09a92-d888-4c07-ac5c-74a686ce66cc"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "4623f15e-88e1-483d-ab4b-0f9016609f7b"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "5c63f737-b64d-416b-8a0a-61e717a46878"
+        },
+        {
+          "command": "check",
+          "target": "css=input[aria-label=\"Enable record matching\"]",
+          "value": "",
+          "id": "cad366d7-14d5-45a8-b223-6d29fd1abfb6"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "row",
+          "id": "589b8ee2-58cd-4625-8e27-8a86c5d0266c"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "87529d27-833a-430a-a5ad-42cb0913d703"
+        },
+        {
+          "command": "store",
+          "target": "demographics",
+          "value": "value",
+          "id": "aaf3f5d1-8cec-446a-bf67-119dbaca9855"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "a8eaeeed-8c1d-46b4-97ed-cd8058cc143b"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "8c896329-6b61-40cc-9d22-9fc6c4f6bbf6"
+        },
+        {
+          "command": "store",
+          "target": "string1::first_name",
+          "value": "value",
+          "id": "e5099481-1701-4087-8f86-194bc24ceb4c"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "339248bb-a483-4925-9e5f-bc58f0480921"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(@class,'btn-success')][contains(.,'Save')]",
+          "value": "",
+          "id": "2b8fb49f-781b-4d7c-8bd1-387d3ef33abc"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'New mapping')]",
+          "value": "",
+          "id": "b7f1e779-953f-4e15-ac0c-cee7ae3b9933"
+        },
+        {
+          "command": "sendKeys",
+          "target": "id=map-name",
+          "value": "${KEY_LEFT}Test3c",
+          "id": "38e3b69e-9666-4af2-acbf-40c549964ffc"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "071ec384-152a-4ab3-813c-e1bfd4fd5161"
+        },
+        {
+          "command": "type",
+          "target": "id=csv",
+          "value": "REPODIR/tests/testdata2.csv",
+          "id": "e637bbb3-4d6a-4452-acb5-5d64c638c190"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "css=.alert-success",
+          "value": "30000",
+          "id": "076cf720-3500-4b41-801a-533456aee43f"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify CSV fields.",
+          "value": "",
+          "id": "ae0480af-0989-4e6e-8de8-4a3e8459b5cf"
+        },
+        {
+          "command": "//type",
+          "target": "css=div.mb-3",
+          "value": "SAVESCREENSHOT",
+          "id": "71d7a0eb-c5d4-47bd-91ed-935fed39eb16"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "ed0a72e6-e525-4b16-8ad5-1ac78c91a7d7"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "row",
+          "id": "db04fce7-b662-4d44-910d-149ef96930bf"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "76bf1457-29d8-496f-8d6a-2a47ef22be6b"
+        },
+        {
+          "command": "store",
+          "target": "string1",
+          "value": "value",
+          "id": "0231037b-f7e1-4fff-8a55-d7a1710e1b10"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "011ba961-58e3-49e1-9869-0cc88af98cac"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "f25e19a5-7ca3-498f-b1bb-dde6561e726f"
+        },
+        {
+          "command": "store",
+          "target": "demographics",
+          "value": "value",
+          "id": "9bebebce-f270-45dd-a365-7ac3029bf2bb"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "c15739d4-140e-4986-8ec2-3dd83c8732a9"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "f17ec1f8-715c-4404-90a0-3b0171f3da49"
+        },
+        {
+          "command": "store",
+          "target": "first_name",
+          "value": "value",
+          "id": "d5c298fe-18e6-49c7-ac02-8e21ce584764"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "3fb02d04-44dc-431e-96c9-da7f59bcc86b"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Add field mapping')]",
+          "value": "",
+          "id": "e497849b-03d1-4926-bb60-3fe7ebe9b275"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "row",
+          "id": "b1d77504-4e0d-4784-8533-2b233b4f83b0"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "136e5b91-3918-4e38-bbc2-91ebc40173b7"
+        },
+        {
+          "command": "store",
+          "target": "dateymd",
+          "value": "value",
+          "id": "ed78210e-0f42-40c1-96ff-4a9a04d44742"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "f6cfc59a-1008-430a-a160-317b5883d440"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "18a5b010-4d6a-43e0-a5b6-c4dfb4d6a0d0"
+        },
+        {
+          "command": "store",
+          "target": "month_2_data",
+          "value": "value",
+          "id": "7e9fb091-6efb-4add-8f1d-8ab6abe359a2"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "1275bf99-986b-463e-94b1-2bb547beed54"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "ab0cdba5-9a91-40f8-90a3-94fcbba528ea"
+        },
+        {
+          "command": "store",
+          "target": "date_visit_2",
+          "value": "value",
+          "id": "671cc8cc-f70a-42b4-8c94-51af1c769fa4"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "d6fc50f6-139e-45d4-8d79-5bad451a1f5a"
+        },
+        {
+          "command": "click",
+          "target": "xpath=(//*[@id='import-wrangler']//button[contains(.,'Add')])[2]",
+          "value": "",
+          "id": "fc6790d3-635b-4b25-952e-84ff53474052"
+        },
+        {
+          "command": "click",
+          "target": "id=fieldRegexEnabled",
+          "value": "",
+          "id": "936a29b6-9f69-4b61-9519-fe61c2ea3e42"
+        },
+        {
+          "command": "sendKeys",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'modal')]//div[contains(.,'Apply regex trans')]//input[contains(@placeholder,'Pattern')]",
+          "value": "${KEY_LEFT}/^(.{5})(.{2}).(.{2})/",
+          "id": "b5118511-e26b-47e1-856a-1a52c6096bc5"
+        },
+        {
+          "command": "sendKeys",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'modal')]//div[contains(.,'Apply regex trans')]//input[contains(@placeholder,'Replacement')]",
+          "value": "${KEY_LEFT}$1$3-$2",
+          "id": "fa65f5b5-31a0-4dc0-bcb2-65cd55c0fca1"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'modal')]//div[contains(.,'Apply regex trans')]//button[contains(.,'Save')]",
+          "value": "",
+          "id": "6fef628b-84e1-4215-aeca-c62b724e1cd8"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Add field mapping')]",
+          "value": "",
+          "id": "607ee7bb-13ab-4b84-a8fc-d2e9fc98d9be"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "row",
+          "id": "05e8e7cf-6af0-4858-a16a-58587274afdf"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "ed5ba30c-45b1-4c0d-b528-d890f56791d4"
+        },
+        {
+          "command": "store",
+          "target": "int1",
+          "value": "value",
+          "id": "787c845b-ac6b-4b2a-95dd-1fb1e28fdc9d"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "97c4452a-f233-4954-b242-b7708ec36617"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "4ee17beb-4ce9-4e6f-a1b0-8e874098aca4"
+        },
+        {
+          "command": "store",
+          "target": "month_2_data",
+          "value": "value",
+          "id": "1ab7920f-2a88-45cb-b92f-eed9b72c901f"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "20d5fbd5-c1c5-444e-946c-dcac72dbaa01"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "1aa3d832-8d07-4801-973c-453643351bc9"
+        },
+        {
+          "command": "store",
+          "target": "drywt_2",
+          "value": "value",
+          "id": "b9b661f8-f190-43e3-95b1-5c04b23e78ac"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "c5b55902-517b-4f52-b8c4-383165bd99bb"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "9d6012f3-2b39-4b92-8a08-7dbceab82e75"
+        },
+        {
+          "command": "check",
+          "target": "css=input[aria-label=\"Enable record matching\"]",
+          "value": "",
+          "id": "b8ce3dd1-81c5-47d7-a5a8-bf5eccd54ce8"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "row",
+          "id": "33a330df-a3fc-4a13-a2d1-082425486ecc"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "2fb7df3e-6386-4413-8261-cf31fbc6fd93"
+        },
+        {
+          "command": "store",
+          "target": "demographics",
+          "value": "value",
+          "id": "7ef43f6d-212d-4c8c-b559-68612e3fa054"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "a9ff3d62-fa9d-4142-bdd9-abc5c364ea3d"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "83c0490d-60f8-4fcb-8770-7038f21edc87"
+        },
+        {
+          "command": "store",
+          "target": "string1::first_name",
+          "value": "value",
+          "id": "6209a44f-60f6-440b-9391-51b8be931e1d"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "752cfeb9-cf7c-42f6-ad61-da8cc2ba4e63"
+        },
+        {
+          "command": "check",
+          "target": "css=input[aria-label^=\"Enable matching for this form\"]",
+          "value": "",
+          "id": "16385800-1a23-44c1-ab0a-5f349acf2b16"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "row",
+          "id": "a6017323-c390-406b-b459-896cb58869f0"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "2dcb6770-b880-4e70-a215-9ce0262a7ebb"
+        },
+        {
+          "command": "store",
+          "target": "int1::drywt_2",
+          "value": "value",
+          "id": "a91c833f-c02c-4030-bd91-b4c8ac6cf341"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "ac53d178-ab66-4a69-b9c2-f3f8d75ed0c2"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(@class,'btn-success')][contains(.,'Save')]",
+          "value": "",
+          "id": "22dffeee-242e-43bc-81ee-ba8e6a62222b"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'card-header')][contains(.,'Test3a')]//button[contains(.,'Import')]",
+          "value": "",
+          "id": "6ef7f3a2-c254-42af-9734-427cb44ccb15"
+        },
+        {
+          "command": "type",
+          "target": "id=csv",
+          "value": "REPODIR/tests/testdata2.csv",
+          "id": "72a12a9f-b578-4a2c-bce2-3d7387ee0759"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//div[contains(@class,'mb-3')][contains(.,'Vendre')]",
+          "value": "",
+          "id": "aedf02ec-af6e-4579-b00d-942155f62d9f"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify CSV preview.",
+          "value": "",
+          "id": "2d7b86c5-d852-4c1a-b23a-e70d6a2f7a73"
+        },
+        {
+          "command": "//type",
+          "target": "css=div.mb-3",
+          "value": "SAVESCREENSHOT",
+          "id": "86aa1425-136c-4596-9aa1-b00aa88ce107"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Import')]",
+          "value": "",
+          "id": "ca817653-d665-4b8b-b91c-0842fe19302d"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//div[contains(@class,'alert-success')][contains(.,'Import Queued')]",
+          "value": "60000",
+          "id": "6affc1f2-d1e4-467c-a003-52035d578376"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//a[contains(.,'View imports')]",
+          "value": "",
+          "id": "b732aad4-3ad0-4fb4-935e-dcc00adef815"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]",
+          "value": "30000",
+          "id": "c45815de-49a8-44af-a5c9-0448490543d7"
+        },
+        {
+          "command": "run",
+          "target": "fn runcron",
+          "value": "",
+          "id": "7a60250b-48b5-45fc-80f5-f8e948f74070"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]//tr[contains(.,'Test3a')][contains(.,'Completed')]",
+          "value": "",
+          "id": "6fb7beb0-2523-4e5a-aaa7-e0a44458478c"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify import completed.",
+          "value": "",
+          "id": "9f01eb7d-09b3-4807-aecb-a9bb0ac23285"
+        },
+        {
+          "command": "//type",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]",
+          "value": "SAVESCREENSHOT",
+          "id": "8cda8c60-bffa-4af3-9c80-c28e3fc75010"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//a[@href='/'][contains(.,'Mappings')]",
+          "value": "",
+          "id": "e0a5af2e-28c9-4e89-ae13-e2d28f0e2cc6"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'card-header')][contains(.,'Test3b')]//button[contains(.,'Import')]",
+          "value": "",
+          "id": "89bd6409-275f-4a6c-b4b5-e30194fa13d5"
+        },
+        {
+          "command": "type",
+          "target": "id=csv",
+          "value": "REPODIR/tests/testdata2.csv",
+          "id": "c5d833ab-d40a-4539-8de5-267fe5ecf488"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//div[contains(@class,'mb-3')][contains(.,'Vendre')]",
+          "value": "",
+          "id": "38d728f5-202f-4508-9f83-24ed695bf3a3"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify CSV preview.",
+          "value": "",
+          "id": "91662316-d278-4659-a845-a36e6557f661"
+        },
+        {
+          "command": "//type",
+          "target": "css=div.mb-3",
+          "value": "SAVESCREENSHOT",
+          "id": "54c33849-2c6a-4387-9b68-66048b46a060"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Import')]",
+          "value": "",
+          "id": "8fc40f3e-4bcc-4e9f-8700-8f6f8631e907"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//div[contains(@class,'alert-success')][contains(.,'Import Queued')]",
+          "value": "60000",
+          "id": "5dcb487c-7160-419c-ad55-837a7f2c3f41"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//a[contains(.,'View imports')]",
+          "value": "",
+          "id": "df5c6694-4821-47ef-aa83-b83b0012cd0b"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]",
+          "value": "30000",
+          "id": "5a7cdbaa-b7cc-4664-adb3-3d6290a9ec93"
+        },
+        {
+          "command": "run",
+          "target": "fn runcron",
+          "value": "",
+          "id": "b54aa976-4be2-4597-ba5e-54efb1528a56"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]//tr[contains(.,'Test3b')][contains(.,'Completed')]",
+          "value": "",
+          "id": "f522ad52-a93b-4f56-988d-cb48d3904669"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify import completed.",
+          "value": "",
+          "id": "5926b2d7-71a4-4778-baf5-8cf06abef76a"
+        },
+        {
+          "command": "//type",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]",
+          "value": "SAVESCREENSHOT",
+          "id": "c0480c7f-8105-4bc8-88d6-002a17f761fd"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"DataEntry/record_status_dashboard.php\"]",
+          "value": "",
+          "id": "b87ed693-0e4d-44c5-9102-33e34df88aa7"
+        },
+        {
+          "command": "click",
+          "target": "css=#record_status_table a[href*=\"DataEntry/index.php\"][href*=\"id=15\"][href*=\"page=demographics\"]",
+          "value": "",
+          "id": "ce1e9fbd-f824-4923-8d8d-1d339ab75910"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Assert value for First Name",
+          "value": "",
+          "id": "3da52cdb-a3b5-4203-ad96-6f7040be860d"
+        },
+        {
+          "command": "//type",
+          "target": "name=first_name",
+          "value": "SAVESCREENSHOT",
+          "id": "89a00828-feee-4137-b757-e2458ccf0a60"
+        },
+        {
+          "command": "assertValue",
+          "target": "name=first_name",
+          "value": "Vendre",
+          "id": "84b77afa-0793-4295-b5ed-95c0c22bb86a"
+        },
+        {
+          "command": "click",
+          "target": "css=a[onclick*=\"showFormInstanceSelector\"]",
+          "value": "",
+          "id": "9f871188-c8d8-4769-a8e5-adcc84ed4e75"
+        },
+        {
+          "command": "click",
+          "target": "css=a.rc-form-menu-link[href*=\"DataEntry/index.php\"][href*=\"id=15\"][href*=\"page=month_2_data\"][href*=\"instance=1\"]",
+          "value": "",
+          "id": "cf21e83a-76c5-4ec0-9f13-bbb5cb2fe29a"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Assert value for Date",
+          "value": "",
+          "id": "35e84195-a6e5-4af9-805e-c01fc85e7635"
+        },
+        {
+          "command": "//type",
+          "target": "name=date_visit_2",
+          "value": "SAVESCREENSHOT",
+          "id": "cdf3599f-f7b2-435c-b797-09ac4c9a99a2"
+        },
+        {
+          "command": "assertValue",
+          "target": "name=date_visit_2",
+          "value": "2025-01-02",
+          "id": "4f3216bc-70d0-4849-b381-939c84cb8899"
+        },
+        {
+          "command": "click",
+          "target": "css=a[onclick*=\"showFormInstanceSelector\"]",
+          "value": "",
+          "id": "11cb33c3-b837-406b-bff4-e502e8f23594"
+        },
+        {
+          "command": "click",
+          "target": "css=a.rc-form-menu-link[href*=\"DataEntry/index.php\"][href*=\"id=15\"][href*=\"page=month_2_data\"][href*=\"instance=2\"]",
+          "value": "",
+          "id": "17cbd52f-7e5c-4c7e-af7a-843be98bbe7c"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Assert value for Date",
+          "value": "",
+          "id": "50858808-a8e1-4153-a3ea-d33009275e27"
+        },
+        {
+          "command": "//type",
+          "target": "name=date_visit_2",
+          "value": "SAVESCREENSHOT",
+          "id": "741969a0-e0d1-4700-bf79-3dd5086044d9"
+        },
+        {
+          "command": "assertValue",
+          "target": "name=date_visit_2",
+          "value": "2025-05-06",
+          "id": "34c1d5c4-897f-4b51-b195-c71e5a7821f5"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"prefix=import_mapper\"][href*=\"page=pages%2Fdashboard\"]",
+          "value": "",
+          "id": "122f3556-7dac-41ad-b896-f29b8ddea317"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'card-header')][contains(.,'Test3c')]//button[contains(.,'Import')]",
+          "value": "",
+          "id": "63e8b1f5-747c-4651-b59d-6aeb0d5aa730"
+        },
+        {
+          "command": "type",
+          "target": "id=csv",
+          "value": "REPODIR/tests/testdata2.csv",
+          "id": "dac2bee2-9c8b-4463-b851-996c9ce5fece"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//div[contains(@class,'mb-3')][contains(.,'Vendre')]",
+          "value": "",
+          "id": "55b7cbf1-bebf-436a-b2e8-d03a10546936"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify CSV preview.",
+          "value": "",
+          "id": "f60e1dd2-efc8-4585-a9a9-9ac02b02982c"
+        },
+        {
+          "command": "//type",
+          "target": "css=div.mb-3",
+          "value": "SAVESCREENSHOT",
+          "id": "81afad3c-65ef-4425-ad83-77dd217dc487"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Import')]",
+          "value": "",
+          "id": "bdf749d6-31a0-4b23-b3dd-d8b622d74258"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//div[contains(@class,'alert-success')][contains(.,'Import Queued')]",
+          "value": "60000",
+          "id": "973c0173-d749-4514-82f5-888f8c7b2a7f"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//a[contains(.,'View imports')]",
+          "value": "",
+          "id": "df99f020-ba20-4952-90f7-0a774cd14305"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]",
+          "value": "30000",
+          "id": "b990c4bb-e345-4c0b-80a0-e39b424bff60"
+        },
+        {
+          "command": "run",
+          "target": "fn runcron",
+          "value": "",
+          "id": "1f0a2a98-2741-45a9-9a96-2bd5d33238e4"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]//tr[contains(.,'Test3c')][contains(.,'Completed')]",
+          "value": "",
+          "id": "73c1869b-7d39-4f46-a4c2-7f1e72b5fffb"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify import completed.",
+          "value": "",
+          "id": "cc29c461-8387-4ba8-b87d-008059876e0a"
+        },
+        {
+          "command": "//type",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]",
+          "value": "SAVESCREENSHOT",
+          "id": "25d0997e-648b-499f-9065-fbf1d66eac2a"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"DataEntry/record_status_dashboard.php\"]",
+          "value": "",
+          "id": "e4ade5bc-6e10-4063-9034-a63d61fecfe6"
+        },
+        {
+          "command": "click",
+          "target": "css=#record_status_table a[href*=\"DataEntry/index.php\"][href*=\"id=15\"][href*=\"page=demographics\"]",
+          "value": "",
+          "id": "2908fd42-dc53-4b64-bc23-45581511ca6f"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Assert value for First Name",
+          "value": "",
+          "id": "c96b78e7-2c4e-4f15-9a2e-f5442eb715ec"
+        },
+        {
+          "command": "//type",
+          "target": "name=first_name",
+          "value": "SAVESCREENSHOT",
+          "id": "2e8a67e7-3c38-4f82-b2c5-ff14a4124116"
+        },
+        {
+          "command": "assertValue",
+          "target": "name=first_name",
+          "value": "Vendre",
+          "id": "b06662ea-0295-47ec-bcb7-47ff0dc87cd1"
+        },
+        {
+          "command": "click",
+          "target": "css=a[onclick*=\"showFormInstanceSelector\"]",
+          "value": "",
+          "id": "acb6e69e-f00e-409a-bb70-60878f1b2d0e"
+        },
+        {
+          "command": "click",
+          "target": "css=a.rc-form-menu-link[href*=\"DataEntry/index.php\"][href*=\"id=15\"][href*=\"page=month_2_data\"][href*=\"instance=1\"]",
+          "value": "",
+          "id": "e87017e4-1a43-427e-a01e-33480eb09b3b"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Assert value for Date",
+          "value": "",
+          "id": "03ee6203-9137-4552-b23c-68142fe931da"
+        },
+        {
+          "command": "//type",
+          "target": "name=date_visit_2",
+          "value": "SAVESCREENSHOT",
+          "id": "336bc315-51ae-47ef-a2b5-d8488d914c29"
+        },
+        {
+          "command": "assertValue",
+          "target": "name=date_visit_2",
+          "value": "2025-02-01",
+          "id": "ed2cb38c-4899-4244-9c85-3da0c3372ad7"
+        },
+        {
+          "command": "click",
+          "target": "css=a[onclick*=\"showFormInstanceSelector\"]",
+          "value": "",
+          "id": "42dd7e65-de5a-46da-8ccd-8c48010681bd"
+        },
+        {
+          "command": "click",
+          "target": "css=a.rc-form-menu-link[href*=\"DataEntry/index.php\"][href*=\"id=15\"][href*=\"page=month_2_data\"][href*=\"instance=2\"]",
+          "value": "",
+          "id": "57480067-07c1-428e-84b5-3f6a4f33a520"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Assert value for Date",
+          "value": "",
+          "id": "18eaea4f-7f47-49c6-9f4e-22a1a56575ef"
+        },
+        {
+          "command": "//type",
+          "target": "name=date_visit_2",
+          "value": "SAVESCREENSHOT",
+          "id": "2406972c-0a0d-4f53-9ad1-7f0db807a474"
+        },
+        {
+          "command": "assertValue",
+          "target": "name=date_visit_2",
+          "value": "2025-06-05",
+          "id": "e478b6cd-ecd8-4526-9e7c-fef26e30a928"
+        }
+      ]
+    },
+    {
+      "id": "42c8f90f-ec8b-443a-8318-40b86ec035a1",
+      "name": "t04 Import repeating into longitudinal project",
+      "commands": [
+        {
+          "id": "54aa88fd-28f3-412d-a3bb-8bc188c8ee98",
+          "command": "open",
+          "target": "/",
+          "value": ""
+        },
+        {
+          "command": "click",
+          "target": "linkText=My Projects",
+          "value": "",
+          "id": "f4887d37-73b2-4283-ac37-edc275551fab"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//*[@id='table-proj_table'][contains(.,'Import Mapper Test L')]",
+          "value": "",
+          "id": "59f9824f-34c1-4835-a17e-0d54fdeae690"
+        },
+        {
+          "command": "click",
+          "target": "linkText=Import Mapper Test L",
+          "value": "",
+          "id": "09a431a6-5684-4ed8-ba20-a024086619a3"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"prefix=import_mapper\"][href*=\"page=pages%2Fdashboard\"]",
+          "value": "",
+          "id": "5624449f-5a21-4d44-b750-5d910c55b6f3"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'New mapping')]",
+          "value": "",
+          "id": "b6622140-c691-4c2c-ae85-21ea4eccb4bc"
+        },
+        {
+          "command": "sendKeys",
+          "target": "id=map-name",
+          "value": "${KEY_LEFT}Test4a",
+          "id": "6387ffa7-ce2e-4576-a8b8-cd7107eea90a"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "6eb7d5ea-3c47-4175-addd-68190e405856"
+        },
+        {
+          "command": "type",
+          "target": "id=csv",
+          "value": "REPODIR/tests/testdata2.csv",
+          "id": "5e28df28-7d90-47c0-8955-22ab8f37fb19"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "css=.alert-success",
+          "value": "30000",
+          "id": "142f2846-903e-4e73-9642-bd909237abfe"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify CSV fields.",
+          "value": "",
+          "id": "8e3b88d1-e8ed-4619-a13e-16044db15ebe"
+        },
+        {
+          "command": "//type",
+          "target": "css=div.mb-3",
+          "value": "SAVESCREENSHOT",
+          "id": "eb113769-ad66-4b9b-b473-0eecc79ff3fd"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "6d55a724-83d2-49be-97b7-02f57833a841"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "row",
+          "id": "3feddde2-0307-4f91-af8b-4ed9414beaa9"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "10022ba3-cfd4-468e-8a4f-c0408237cca3"
+        },
+        {
+          "command": "store",
+          "target": "int2",
+          "value": "value",
+          "id": "95a897db-f9b0-462d-9da6-1be85abe6712"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "265475f0-2c6a-4966-a430-ef36235c6f25"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "f3f5b7f8-e682-4155-abf2-dcf442e6a39c"
+        },
+        {
+          "command": "store",
+          "target": "enrollment_arm_1",
+          "value": "value",
+          "id": "f59a72ba-96bb-4864-9259-151b66487af4"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "54df379c-a5b5-46ff-8fac-8f275366f241"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "a5212ac4-6ca7-4475-bf05-6b95fc6cd909"
+        },
+        {
+          "command": "store",
+          "target": "demographics",
+          "value": "value",
+          "id": "ab8e0f0e-a372-416f-8acd-83c06734fb40"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "d06ca4ed-5ad9-43f1-b359-5466af9afe2e"
+        },
+        {
+          "command": "store",
+          "target": "4",
+          "value": "field",
+          "id": "960c7664-1ca2-439c-ad4f-682d38afb938"
+        },
+        {
+          "command": "store",
+          "target": "study_id",
+          "value": "value",
+          "id": "7f968d49-7c1f-4120-9865-73f60965c7d5"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "cd0753f8-2880-4a42-9cfa-177bed9a2ee9"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Add field mapping')]",
+          "value": "",
+          "id": "43a9c5d2-871a-4da8-8812-0448ed4d1613"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "row",
+          "id": "1a492ea1-14c1-4fca-a837-1a7999405666"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "21efe1bd-f1d3-4ee5-bcba-e52a17d714ac"
+        },
+        {
+          "command": "store",
+          "target": "string1",
+          "value": "value",
+          "id": "ce74b1e3-174b-4b8b-b43f-ef164fdbb14c"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "d780d4b2-d009-4a89-9e3d-da4a7b3b1b19"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "6fffeac1-9a2b-471c-8aa1-d68aeb41ca64"
+        },
+        {
+          "command": "store",
+          "target": "enrollment_arm_1",
+          "value": "value",
+          "id": "6c82713f-df7c-488b-bb17-47689db19a95"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "8d92cf43-81a1-42df-b516-151bb377d2d4"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "8038fa97-0bdc-4e88-87db-752f887653ad"
+        },
+        {
+          "command": "store",
+          "target": "demographics",
+          "value": "value",
+          "id": "d2146405-71c8-43a0-baa1-7f472d9d39e9"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "a3ec8d27-e807-4433-8be1-14ba09597311"
+        },
+        {
+          "command": "store",
+          "target": "4",
+          "value": "field",
+          "id": "52976c5d-8a5a-475d-a15b-79b48b0401c1"
+        },
+        {
+          "command": "store",
+          "target": "first_name",
+          "value": "value",
+          "id": "04bcd4ec-979e-4373-9533-4ac345ab2603"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "f20fea9b-a74b-45ad-83b7-94649d2261d1"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "4b8ced28-2297-475a-afca-72ec8f80e3fb"
+        },
+        {
+          "command": "check",
+          "target": "css=input[aria-label=\"Enable record matching\"]",
+          "value": "",
+          "id": "797c6365-70e4-4616-ae20-fb30ce7ed97b"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "row",
+          "id": "a8a69f02-daec-4787-bb45-a86312f56626"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "d3534051-0e36-4cb2-b630-8f09b84d4980"
+        },
+        {
+          "command": "store",
+          "target": "enrollment_arm_1",
+          "value": "value",
+          "id": "028d49ac-119f-4d83-b120-9e0097c01b92"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "efc4045a-6161-4505-a1ff-42083c913cd5"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "7ad21e80-6082-45af-a31f-7fb401edb169"
+        },
+        {
+          "command": "store",
+          "target": "demographics",
+          "value": "value",
+          "id": "3c1d870d-8a01-412f-ab00-c55b42a56c88"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "a61cffba-526a-4ed6-9906-64455476e1e8"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "4ad2edb7-8c6f-446e-8549-fc6c6b11db2f"
+        },
+        {
+          "command": "store",
+          "target": "string1::enrollment_arm_1::first_name",
+          "value": "value",
+          "id": "3e2bdb03-8b36-4f59-a5a3-3c00f33bc251"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "0af85031-35b2-4cd7-a98a-8c5deaaffbf5"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(@class,'btn-success')][contains(.,'Save')]",
+          "value": "",
+          "id": "b7fb3403-ce17-428c-8065-059e9f1a0578"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'New mapping')]",
+          "value": "",
+          "id": "6887312a-c208-4e81-958e-5eb1e066cd46"
+        },
+        {
+          "command": "sendKeys",
+          "target": "id=map-name",
+          "value": "${KEY_LEFT}Test4b",
+          "id": "061201dd-77a0-4cdc-9bc2-346c955c06e9"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "942cbf3d-1435-4086-a8ef-0e0827c6e4e2"
+        },
+        {
+          "command": "type",
+          "target": "id=csv",
+          "value": "REPODIR/tests/testdata2.csv",
+          "id": "86dae41f-86d6-432e-8540-579aea146d6e"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "css=.alert-success",
+          "value": "30000",
+          "id": "aa2dea0f-b3d1-4377-9bee-e44c70e621a8"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify CSV fields.",
+          "value": "",
+          "id": "4eb8a5f8-31b2-41d7-9807-5cad94e471db"
+        },
+        {
+          "command": "//type",
+          "target": "css=div.mb-3",
+          "value": "SAVESCREENSHOT",
+          "id": "73ca5de6-e3f3-4523-bd2f-ca932b7fa05c"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "2e7f133a-9e17-4bbe-91dd-2aff17825d47"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "row",
+          "id": "139b6d1c-9195-4c7a-a75d-903dc94b1796"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "19d1ddd0-37da-4c5c-a984-2bcdfa783383"
+        },
+        {
+          "command": "store",
+          "target": "string1",
+          "value": "value",
+          "id": "5273e689-2f3a-487b-a7fb-1b954ab8ef40"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "1d24b658-e100-4704-bef0-0584abfee7cc"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "36ca8e48-a04a-4f60-a43f-e2dd65d24265"
+        },
+        {
+          "command": "store",
+          "target": "enrollment_arm_1",
+          "value": "value",
+          "id": "7431e285-b357-49bf-9d52-990099f792a8"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "c3340faa-152b-43a1-8d89-95a9eb3d0988"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "01d4ef88-3687-43dc-b0aa-fcc7f5ab6679"
+        },
+        {
+          "command": "store",
+          "target": "demographics",
+          "value": "value",
+          "id": "ee016336-3d9d-4609-9998-476c1cf68a6c"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "bf2b1895-0237-404b-8009-5d1a75ce5722"
+        },
+        {
+          "command": "store",
+          "target": "4",
+          "value": "field",
+          "id": "15c0a6fe-4664-4d8d-bac9-918c6e79f2d1"
+        },
+        {
+          "command": "store",
+          "target": "first_name",
+          "value": "value",
+          "id": "12e9e610-acf9-43e2-a3b5-de985edffd3e"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "29309352-10e0-497a-a72a-78460cf8932a"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Add field mapping')]",
+          "value": "",
+          "id": "b67d498c-6943-4344-95e1-370d1071882a"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "row",
+          "id": "86094125-2a48-490d-a104-2b1d8ffcc59b"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "0386296e-437e-42f1-bf7b-1e8145847cb7"
+        },
+        {
+          "command": "store",
+          "target": "int1",
+          "value": "value",
+          "id": "c53028da-e8a2-4c5b-9c28-9916212d236c"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "fbca32e8-7c2f-4ac2-bc49-c07c34c99a4d"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "fcda7dc5-8721-4b47-aef7-32440c0814fd"
+        },
+        {
+          "command": "store",
+          "target": "visit_2_arm_1",
+          "value": "value",
+          "id": "3cc46c9c-ba3e-40f0-afdf-7bd6794f93db"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "6c878dca-dc0d-477d-939a-d6fa49dec7fa"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "e4818e50-e388-47b2-840e-ba6deb0b3796"
+        },
+        {
+          "command": "store",
+          "target": "visit_lab_data",
+          "value": "value",
+          "id": "65a3bfed-c6f7-4734-8b1c-4f8cb1136283"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "80133196-1dc0-4d51-878b-33cda2cf100b"
+        },
+        {
+          "command": "store",
+          "target": "4",
+          "value": "field",
+          "id": "a1d71adf-165b-49bd-a58e-8dbd716f0a60"
+        },
+        {
+          "command": "store",
+          "target": "vld1",
+          "value": "value",
+          "id": "409f444a-91c7-4d09-882a-52452524d080"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "0f432ef1-08dc-435a-ad1d-c8341397ec81"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Add field mapping')]",
+          "value": "",
+          "id": "88a61a92-e1f5-4532-88b5-6d09ebbb61cb"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "row",
+          "id": "f02087ae-b48e-45f1-bef7-cd1b4f8ec3f6"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "fcca28a0-c036-465d-92c7-a0d82776aa9b"
+        },
+        {
+          "command": "store",
+          "target": "dateymd",
+          "value": "value",
+          "id": "1bb6354a-3307-4b80-987a-477d75bd40e4"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "d15948ee-5e9a-43cc-afc1-f1bb9dd870e1"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "7083ad4f-b8b7-4416-8f8b-b8ba2f29543d"
+        },
+        {
+          "command": "store",
+          "target": "visit_2_arm_1",
+          "value": "value",
+          "id": "f5bec628-28b2-4ac0-b095-ed7ba618a5ad"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "3e38f38e-0a5e-43e5-9211-1c32c7a037c3"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "a3c22451-f77f-448e-90e9-b7d17b184030"
+        },
+        {
+          "command": "store",
+          "target": "visit_lab_data",
+          "value": "value",
+          "id": "9210dd7c-ca6d-4741-bd28-c3f2469f5088"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "95f94ecc-3c2b-437e-9386-2d141f6309b7"
+        },
+        {
+          "command": "store",
+          "target": "4",
+          "value": "field",
+          "id": "e7f1c0e9-ebe4-4284-8a4e-bed9b8eb99f3"
+        },
+        {
+          "command": "store",
+          "target": "vld2",
+          "value": "value",
+          "id": "4ee0cb7f-a5f5-4eb1-b325-0e150140e340"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "d8964d81-ace8-425b-a8e3-37762e48227d"
+        },
+        {
+          "command": "click",
+          "target": "xpath=(//*[@id='import-wrangler']//button[contains(.,'Add')])[3]",
+          "value": "",
+          "id": "8140dc82-e639-449f-ad4b-c481f0bf4ee5"
+        },
+        {
+          "command": "click",
+          "target": "id=fieldRegexEnabled",
+          "value": "",
+          "id": "8e9efd24-1782-4258-ad8b-aed7487079fc"
+        },
+        {
+          "command": "sendKeys",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'modal')]//div[contains(.,'Apply regex trans')]//input[contains(@placeholder,'Pattern')]",
+          "value": "${KEY_LEFT}/^.*?0*([0-9]+)$/",
+          "id": "abe96564-2ede-4fad-9576-2ce655c8e280"
+        },
+        {
+          "command": "sendKeys",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'modal')]//div[contains(.,'Apply regex trans')]//input[contains(@placeholder,'Replacement')]",
+          "value": "${KEY_LEFT}$1",
+          "id": "65d092d7-8f12-4556-ad90-03f799359f1b"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'modal')]//div[contains(.,'Apply regex trans')]//button[contains(.,'Save')]",
+          "value": "",
+          "id": "e8ca3d83-c250-442e-baa3-2aebf025a89e"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "420f3a10-a528-4147-9df2-bbf170e30ab5"
+        },
+        {
+          "command": "check",
+          "target": "css=input[aria-label=\"Enable record matching\"]",
+          "value": "",
+          "id": "7e00ef12-f883-41a2-94c3-bd0fde639f99"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "row",
+          "id": "068bb10f-5d63-43f7-8cc0-5e03d24eb471"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "d54f5cdb-13b2-473e-8971-711e0a7c4357"
+        },
+        {
+          "command": "store",
+          "target": "enrollment_arm_1",
+          "value": "value",
+          "id": "7b061d7c-6608-498d-a5e7-fefc9731a923"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "c22c458f-b549-4119-b0ba-96c336e818e4"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "304e288d-8f51-469a-bda2-49e0453131c2"
+        },
+        {
+          "command": "store",
+          "target": "demographics",
+          "value": "value",
+          "id": "eeed4c3b-f7bf-42f2-b5ad-61611982ce63"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "9383933b-e5d8-4d40-90b4-a6b83e96fccf"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "3e0f4fc8-160e-45ed-aa16-c520da08b2e3"
+        },
+        {
+          "command": "store",
+          "target": "string1::enrollment_arm_1::first_name",
+          "value": "value",
+          "id": "05ea7b7d-4d79-438b-b5e2-e6b479071e0b"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "14e1a539-f59c-4e82-b67a-fa7c6665d56a"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(@class,'btn-success')][contains(.,'Save')]",
+          "value": "",
+          "id": "89bc6d0c-14b9-446b-82a7-4fa0db1433c7"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'New mapping')]",
+          "value": "",
+          "id": "4cc36a22-4578-47e2-8681-ba3e7892aad7"
+        },
+        {
+          "command": "sendKeys",
+          "target": "id=map-name",
+          "value": "${KEY_LEFT}Test4c",
+          "id": "e7331e6a-8ed4-4de5-80f3-7ba71e94682e"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "8387c544-a2f7-40b3-94a0-0d4eb7082c88"
+        },
+        {
+          "command": "type",
+          "target": "id=csv",
+          "value": "REPODIR/tests/testdata2.csv",
+          "id": "3e1aa5ab-74be-4ab3-ae4b-b8e56d3460a1"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "css=.alert-success",
+          "value": "30000",
+          "id": "bbc22c8b-927f-4cc8-b56b-0a713bfe0253"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify CSV fields.",
+          "value": "",
+          "id": "a34f0844-67da-4796-a9e2-c7a3a4c18df5"
+        },
+        {
+          "command": "//type",
+          "target": "css=div.mb-3",
+          "value": "SAVESCREENSHOT",
+          "id": "49395e2e-b402-4a6b-91e9-1834239dee41"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "bec4cbf1-f9b3-43dc-b7c6-b858c5921c7e"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "row",
+          "id": "ea5ef885-72f7-4240-bea9-b4fce8444aac"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "96599daf-211e-441f-a5cb-9259c0d331e9"
+        },
+        {
+          "command": "store",
+          "target": "string1",
+          "value": "value",
+          "id": "e8223dec-6151-4f1a-9a44-df8fba9be7f1"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "d088a246-b9f2-43f8-bd57-0931b64c2edd"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "50836142-ac67-4951-a412-a48bfab8771f"
+        },
+        {
+          "command": "store",
+          "target": "enrollment_arm_1",
+          "value": "value",
+          "id": "19934488-f600-4b9c-a0bd-f1fffe5ed1d7"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "1a14219d-c7a8-47f0-912e-3fba60f34b41"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "80c8079f-2f78-4274-b8ad-525d8d9668d1"
+        },
+        {
+          "command": "store",
+          "target": "demographics",
+          "value": "value",
+          "id": "e4977dc9-debc-42da-a7f6-fec1281dce42"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "59175bc4-1f14-42f5-99d1-446e6d582504"
+        },
+        {
+          "command": "store",
+          "target": "4",
+          "value": "field",
+          "id": "18aedabf-9657-4f55-9fea-3d7d8a3ea3cb"
+        },
+        {
+          "command": "store",
+          "target": "first_name",
+          "value": "value",
+          "id": "5847d89f-7eda-47de-af54-8b8d854cefbc"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "62bae423-e8d8-45a2-a206-1dea76260dd4"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Add field mapping')]",
+          "value": "",
+          "id": "675dc36d-36d2-476b-9a73-ad005d840ab1"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "row",
+          "id": "789a5a02-dceb-42f3-91b9-8c7f7fd7a817"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "20b6846b-943c-40c8-b047-2c322aef5a45"
+        },
+        {
+          "command": "store",
+          "target": "int1",
+          "value": "value",
+          "id": "63aff4bc-bb75-4523-9531-4549a042f57a"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "486e226a-8eb4-4be4-8825-4869fa8a4cdc"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "37358ebf-2d26-463a-964a-e035d55f862b"
+        },
+        {
+          "command": "store",
+          "target": "visit_2_arm_1",
+          "value": "value",
+          "id": "1898ccd9-2274-4183-a09c-b773e6c97756"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "2e0bf0fb-042b-479b-82a6-fce94de8738d"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "0d35dcdf-f8d4-4709-abe5-21007dc10eea"
+        },
+        {
+          "command": "store",
+          "target": "visit_lab_data",
+          "value": "value",
+          "id": "a447d3f2-ce08-43c7-b730-bb845b0ae814"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "842db1ca-39f6-472c-854c-8658a98fc79f"
+        },
+        {
+          "command": "store",
+          "target": "4",
+          "value": "field",
+          "id": "59ea2cda-b12b-44aa-b807-b03f1f65ec04"
+        },
+        {
+          "command": "store",
+          "target": "vld1",
+          "value": "value",
+          "id": "c095e443-be1f-46a1-b471-c357bc16b01a"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "edefb757-93f1-4f6e-8ae2-1e5b75e0feab"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Add field mapping')]",
+          "value": "",
+          "id": "6bbc91e8-d7ad-43b3-9473-7b2f44328e43"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "row",
+          "id": "031cd5a8-e2c2-4fc6-807d-0db583e4b82a"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "3ce740ed-d34b-4053-a8e3-4123fec32720"
+        },
+        {
+          "command": "store",
+          "target": "dateymd",
+          "value": "value",
+          "id": "3599b450-0428-4d8e-b2f8-c26476134e5d"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "a1a6183d-eab4-494d-a8c9-64570fea8677"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "90a45de4-67ed-44b6-83cd-205b749e20e0"
+        },
+        {
+          "command": "store",
+          "target": "visit_2_arm_1",
+          "value": "value",
+          "id": "9ad409da-cbdf-4228-8917-fbe759a53669"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "fcbc616e-22c8-425a-a81b-35522cd8e972"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "c81cee7b-6cd7-413a-bd32-8f838d53efe5"
+        },
+        {
+          "command": "store",
+          "target": "visit_lab_data",
+          "value": "value",
+          "id": "0de923ed-1796-4ef1-a4fe-f7fc5376755c"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "d68709b5-a8e3-478b-ad0c-1710b67cbd24"
+        },
+        {
+          "command": "store",
+          "target": "4",
+          "value": "field",
+          "id": "5f338282-ef55-4b74-8404-f00c8403845a"
+        },
+        {
+          "command": "store",
+          "target": "vld2",
+          "value": "value",
+          "id": "16d02857-58d6-429b-a00e-bbc210151a5f"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "6bc2abf3-0a93-4f9c-932e-995892ce2d00"
+        },
+        {
+          "command": "click",
+          "target": "xpath=(//*[@id='import-wrangler']//button[contains(.,'Add')])[3]",
+          "value": "",
+          "id": "39a9936e-85b3-46f1-8e46-b16d828df37c"
+        },
+        {
+          "command": "click",
+          "target": "id=fieldRegexEnabled",
+          "value": "",
+          "id": "2f993f49-c07a-47b7-a03f-9152639095e4"
+        },
+        {
+          "command": "sendKeys",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'modal')]//div[contains(.,'Apply regex trans')]//input[contains(@placeholder,'Pattern')]",
+          "value": "${KEY_LEFT}/^.*?0*([0-9]+)-[0-9]{2}$/",
+          "id": "6c6956b6-4cbb-451a-9b41-f16f15b2fdbc"
+        },
+        {
+          "command": "sendKeys",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'modal')]//div[contains(.,'Apply regex trans')]//input[contains(@placeholder,'Replacement')]",
+          "value": "${KEY_LEFT}$1",
+          "id": "1c044e25-0872-4961-9fd3-d3f9bb93b1b5"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'modal')]//div[contains(.,'Apply regex trans')]//button[contains(.,'Save')]",
+          "value": "",
+          "id": "f06dfa43-9536-44c2-a4ae-2359c285aca6"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Continue')]",
+          "value": "",
+          "id": "c15a3494-a5e2-45cd-8113-71cd8fa9f1f6"
+        },
+        {
+          "command": "check",
+          "target": "css=input[aria-label=\"Enable record matching\"]",
+          "value": "",
+          "id": "c152c314-7675-4712-91ed-7e5cd676010a"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "row",
+          "id": "2440d015-c140-4c1f-8b0f-463ebddecd75"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "b7479b65-14d8-46c8-8e94-74f4a5445f3d"
+        },
+        {
+          "command": "store",
+          "target": "enrollment_arm_1",
+          "value": "value",
+          "id": "d77bd57e-cffd-4b52-ae18-e143409c03bc"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "9e1aedd7-bb6b-479b-82ba-32e3209f3013"
+        },
+        {
+          "command": "store",
+          "target": "2",
+          "value": "field",
+          "id": "73d8afe2-c1bf-4850-a97e-0d4a640750c6"
+        },
+        {
+          "command": "store",
+          "target": "demographics",
+          "value": "value",
+          "id": "17b15e3a-9ff9-482e-b704-55ec58eb0440"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "d1eb8fa5-5f4e-4132-b22d-7fa08e58680e"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "field",
+          "id": "68249730-1a9f-45c5-93bf-7937a40ebb5e"
+        },
+        {
+          "command": "store",
+          "target": "string1::enrollment_arm_1::first_name",
+          "value": "value",
+          "id": "4d9954f9-a074-4a38-a269-78baf07213cf"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "7dd89e6d-601d-42f1-b92f-59a95dbbd081"
+        },
+        {
+          "command": "check",
+          "target": "css=input[aria-label^=\"Enable matching for this form\"]",
+          "value": "",
+          "id": "747b99a9-c6b0-45ea-8141-37cfec7ec2b3"
+        },
+        {
+          "command": "store",
+          "target": "3",
+          "value": "row",
+          "id": "3907e9cb-0b09-4ecd-8be8-22530c47b4ee"
+        },
+        {
+          "command": "store",
+          "target": "1",
+          "value": "field",
+          "id": "a3ae79d9-65e7-44e4-a7bc-859a6df10169"
+        },
+        {
+          "command": "store",
+          "target": "int1::visit_2_arm_1::vld1",
+          "value": "value",
+          "id": "5379e777-0f2d-4937-a57d-95ee97393378"
+        },
+        {
+          "command": "run",
+          "target": "fn mappingselect",
+          "value": "",
+          "id": "295f6f2b-d839-4adc-876d-86cee326d830"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(@class,'btn-success')][contains(.,'Save')]",
+          "value": "",
+          "id": "545905e1-c39f-49ec-9a2c-5d36b3fc3654"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'card-header')][contains(.,'Test4a')]//button[contains(.,'Import')]",
+          "value": "",
+          "id": "a304b073-c541-4214-ac26-fefb44310ef2"
+        },
+        {
+          "command": "type",
+          "target": "id=csv",
+          "value": "REPODIR/tests/testdata2.csv",
+          "id": "f68c57a4-7dfc-4340-a6ab-00ebba5310b4"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//div[contains(@class,'mb-3')][contains(.,'Vendre')]",
+          "value": "",
+          "id": "ae34636c-bff4-491c-bbb0-a0c71e5a16d7"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify CSV preview.",
+          "value": "",
+          "id": "55a4d6c0-7738-404a-9721-d51bda4e84ad"
+        },
+        {
+          "command": "//type",
+          "target": "css=div.mb-3",
+          "value": "SAVESCREENSHOT",
+          "id": "6f3918f5-eca7-44db-9c65-92cbf31adc71"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Import')]",
+          "value": "",
+          "id": "489137a1-939e-4174-b148-fe723cfe0e8e"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//div[contains(@class,'alert-success')][contains(.,'Import Queued')]",
+          "value": "60000",
+          "id": "8385edba-84ac-47e6-b63e-504a31b2160b"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//a[contains(.,'View imports')]",
+          "value": "",
+          "id": "713c9160-6b41-45aa-ad0c-c7332b9cc503"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]",
+          "value": "30000",
+          "id": "56f64980-cfcc-41e2-a94a-5e30977f4261"
+        },
+        {
+          "command": "run",
+          "target": "fn runcron",
+          "value": "",
+          "id": "718e0cf4-5282-4fb5-8372-7c39a19b61d6"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]//tr[contains(.,'Test4a')][contains(.,'Completed')]",
+          "value": "",
+          "id": "c2d80075-b3f4-4305-aa5c-2fa5796fdf83"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify import completed.",
+          "value": "",
+          "id": "cb744507-53d6-4f2c-ac7f-3819f247706d"
+        },
+        {
+          "command": "//type",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]",
+          "value": "SAVESCREENSHOT",
+          "id": "7c44602e-7499-49d6-a27e-37aa00d01d39"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//a[@href='/'][contains(.,'Mappings')]",
+          "value": "",
+          "id": "fb5b2ae5-3c5f-4efe-866e-feb6973aa65b"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'card-header')][contains(.,'Test4b')]//button[contains(.,'Import')]",
+          "value": "",
+          "id": "05b3bf53-557e-472a-8174-77c1d2f1d262"
+        },
+        {
+          "command": "type",
+          "target": "id=csv",
+          "value": "REPODIR/tests/testdata2.csv",
+          "id": "32322c8c-3000-4806-9917-4ce355e98cd2"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//div[contains(@class,'mb-3')][contains(.,'Vendre')]",
+          "value": "",
+          "id": "0dce394f-646b-4ca4-92c5-41d8437840c7"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify CSV preview.",
+          "value": "",
+          "id": "62d8ab1e-05c2-4f82-bf4b-0ccdcfe67090"
+        },
+        {
+          "command": "//type",
+          "target": "css=div.mb-3",
+          "value": "SAVESCREENSHOT",
+          "id": "da808355-e989-4275-8601-92f50dd98f40"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Import')]",
+          "value": "",
+          "id": "75f66f32-f886-4163-b40b-e7838e909a0a"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//div[contains(@class,'alert-success')][contains(.,'Import Queued')]",
+          "value": "60000",
+          "id": "fadcc981-067a-47f5-9318-98165a64ad5a"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//a[contains(.,'View imports')]",
+          "value": "",
+          "id": "0df6cdf2-b8e7-47ad-b5b9-3b3500ff423b"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]",
+          "value": "30000",
+          "id": "34dc1eaf-82ba-4acd-979c-78c03119d915"
+        },
+        {
+          "command": "run",
+          "target": "fn runcron",
+          "value": "",
+          "id": "f3858579-72cf-482b-b646-dd7bd70e2904"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]//tr[contains(.,'Test4b')][contains(.,'Completed')]",
+          "value": "",
+          "id": "837c3373-28f9-4725-a979-5165d08b9b28"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify import completed.",
+          "value": "",
+          "id": "5fb7d73f-90a4-4743-8ba2-f98702cc76ad"
+        },
+        {
+          "command": "//type",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]",
+          "value": "SAVESCREENSHOT",
+          "id": "5fbb55e4-c26e-4f8c-9fb5-acfe730b9a65"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"DataEntry/record_status_dashboard.php\"]",
+          "value": "",
+          "id": "54002563-c0c7-478d-956f-0032ef38001e"
+        },
+        {
+          "command": "click",
+          "target": "css=#record_status_table a[href*=\"DataEntry/index.php\"][href*=\"id=15\"][href*=\"page=demographics\"]",
+          "value": "",
+          "id": "b84cd159-3f67-42e9-9479-1e71098f3430"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Assert value for First Name",
+          "value": "",
+          "id": "cafb3ba9-c6ef-440c-bc4c-e455132d992e"
+        },
+        {
+          "command": "//type",
+          "target": "name=first_name",
+          "value": "SAVESCREENSHOT",
+          "id": "de2a44a9-8d3d-41a0-adf1-e1049a29a2b3"
+        },
+        {
+          "command": "assertValue",
+          "target": "name=first_name",
+          "value": "Vendre",
+          "id": "7d17eb38-83f9-4016-89d1-af8884b3cb9a"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"DataEntry/record_home.php\"][href*=\"id=15\"]",
+          "value": "",
+          "id": "eed648eb-502c-40c2-87df-edd5656ae3f8"
+        },
+        {
+          "command": "click",
+          "target": "css=a[onclick*=\"showFormInstanceSelector\"]",
+          "value": "",
+          "id": "117bb055-75e6-4c16-b475-4dd4f2d828f9"
+        },
+        {
+          "command": "click",
+          "target": "css=a.rc-form-menu-link[href*=\"DataEntry/index.php\"][href*=\"id=15\"][href*=\"page=visit_lab_data\"][href*=\"instance=1\"]",
+          "value": "",
+          "id": "fcb20902-9020-4fc2-bb61-18e962a2af55"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Assert value",
+          "value": "",
+          "id": "8b093d27-5d25-4ccf-9655-381f8c45b497"
+        },
+        {
+          "command": "//type",
+          "target": "name=vld2",
+          "value": "SAVESCREENSHOT",
+          "id": "08be488d-2140-4ed2-8854-b7766221528c"
+        },
+        {
+          "command": "assertValue",
+          "target": "name=vld2",
+          "value": "2",
+          "id": "a65f44e3-ff12-44c0-a896-8c612000bebd"
+        },
+        {
+          "command": "click",
+          "target": "css=a[onclick*=\"showFormInstanceSelector\"]",
+          "value": "",
+          "id": "602275bd-30c9-492e-a8ed-9bf9ac9c0bfe"
+        },
+        {
+          "command": "click",
+          "target": "css=a.rc-form-menu-link[href*=\"DataEntry/index.php\"][href*=\"id=15\"][href*=\"page=visit_lab_data\"][href*=\"instance=2\"]",
+          "value": "",
+          "id": "dc5e108e-9bf7-49ce-9705-5d4e0d812a14"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Assert value",
+          "value": "",
+          "id": "40d04e76-af09-407e-b781-55e790854d48"
+        },
+        {
+          "command": "//type",
+          "target": "name=vld2",
+          "value": "SAVESCREENSHOT",
+          "id": "71276411-8a3c-45ca-a769-d2a46ba9b0fe"
+        },
+        {
+          "command": "assertValue",
+          "target": "name=vld2",
+          "value": "6",
+          "id": "fdaf62e2-c350-43ed-b8eb-2c00317a8263"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"prefix=import_mapper\"][href*=\"page=pages%2Fdashboard\"]",
+          "value": "",
+          "id": "9330a440-72d6-4d9b-b749-9ccb92a3bddc"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//div[contains(@class,'card-header')][contains(.,'Test4c')]//button[contains(.,'Import')]",
+          "value": "",
+          "id": "35dbcb5a-9721-40bc-a62c-75cad626bf8b"
+        },
+        {
+          "command": "type",
+          "target": "id=csv",
+          "value": "REPODIR/tests/testdata2.csv",
+          "id": "d314a33c-e713-496f-b6f5-d08ac12ab2ca"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//div[contains(@class,'mb-3')][contains(.,'Vendre')]",
+          "value": "",
+          "id": "f3f5083c-e6db-4a0d-a322-6d30fe6d813f"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify CSV preview.",
+          "value": "",
+          "id": "6ba204ab-9113-4004-8be9-1a8b533ae7d2"
+        },
+        {
+          "command": "//type",
+          "target": "css=div.mb-3",
+          "value": "SAVESCREENSHOT",
+          "id": "fba4df43-dce9-400b-aefe-af30ca3de93f"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//button[contains(.,'Import')]",
+          "value": "",
+          "id": "f84c06ce-ece8-4303-815c-2026bee265f0"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//div[contains(@class,'alert-success')][contains(.,'Import Queued')]",
+          "value": "60000",
+          "id": "f9078956-a278-4b6c-9fab-b0cd24f2cbf0"
+        },
+        {
+          "command": "click",
+          "target": "xpath=//*[@id='import-wrangler']//a[contains(.,'View imports')]",
+          "value": "",
+          "id": "f16e6a39-5a06-4217-b1ba-6fa43be04a51"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]",
+          "value": "30000",
+          "id": "7797e8d3-5705-4833-b3db-d4a842ffe2ae"
+        },
+        {
+          "command": "run",
+          "target": "fn runcron",
+          "value": "",
+          "id": "311129a2-398e-4f70-9138-572cc3c99e9b"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]//tr[contains(.,'Test4c')][contains(.,'Completed')]",
+          "value": "",
+          "id": "c5291f5f-e80b-4d77-a27d-1121ea5a2c84"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Verify import completed.",
+          "value": "",
+          "id": "80d59af9-1188-4a40-91fc-2c1ddbf9bb7e"
+        },
+        {
+          "command": "//type",
+          "target": "xpath=//*[@id='import-wrangler']//table[contains(.,'Mapping Name')]",
+          "value": "SAVESCREENSHOT",
+          "id": "8f909d8b-d7a0-4a0e-b77c-4a1b23bb7c21"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"DataEntry/record_status_dashboard.php\"]",
+          "value": "",
+          "id": "c11bb71c-f5d3-4996-b01d-886c63b815ae"
+        },
+        {
+          "command": "click",
+          "target": "css=#record_status_table a[href*=\"DataEntry/index.php\"][href*=\"id=15\"][href*=\"page=demographics\"]",
+          "value": "",
+          "id": "c8b70175-97f7-4eec-a226-ac4e071325a8"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Assert value for First Name",
+          "value": "",
+          "id": "9e471418-b30d-4c97-b402-68394f4e14ad"
+        },
+        {
+          "command": "//type",
+          "target": "name=first_name",
+          "value": "SAVESCREENSHOT",
+          "id": "3b269295-9770-470e-850d-d8572dc3c299"
+        },
+        {
+          "command": "assertValue",
+          "target": "name=first_name",
+          "value": "Vendre",
+          "id": "7694cfac-3548-4dcf-95cc-0c124b0f2801"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"DataEntry/record_home.php\"][href*=\"id=15\"]",
+          "value": "",
+          "id": "610f77f4-2d25-41f0-a666-4334bdad37d1"
+        },
+        {
+          "command": "click",
+          "target": "css=a[onclick*=\"showFormInstanceSelector\"]",
+          "value": "",
+          "id": "7a266b16-6794-4c7e-bc7d-6f71e45d4779"
+        },
+        {
+          "command": "click",
+          "target": "css=a.rc-form-menu-link[href*=\"DataEntry/index.php\"][href*=\"id=15\"][href*=\"page=visit_lab_data\"][href*=\"instance=1\"]",
+          "value": "",
+          "id": "2b30186e-db7f-413e-a748-d275addbcc2a"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Assert value",
+          "value": "",
+          "id": "2f9a68c2-c599-43fe-9aba-168acbacc933"
+        },
+        {
+          "command": "//type",
+          "target": "name=vld2",
+          "value": "SAVESCREENSHOT",
+          "id": "f146f535-348e-4a0b-8a30-c1e4d99928fe"
+        },
+        {
+          "command": "assertValue",
+          "target": "name=vld2",
+          "value": "1",
+          "id": "6f1dfb53-980b-4bd1-a125-eec5b063a73c"
+        },
+        {
+          "command": "click",
+          "target": "css=a[onclick*=\"showFormInstanceSelector\"]",
+          "value": "",
+          "id": "29f2a2cd-0368-4913-bd85-767c253cc512"
+        },
+        {
+          "command": "click",
+          "target": "css=a.rc-form-menu-link[href*=\"DataEntry/index.php\"][href*=\"id=15\"][href*=\"page=visit_lab_data\"][href*=\"instance=2\"]",
+          "value": "",
+          "id": "3b750481-4f0e-4701-a6b6-be2e2426d4f0"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Assert value",
+          "value": "",
+          "id": "03e65f3e-2802-46cc-aade-1ddd646d48aa"
+        },
+        {
+          "command": "//type",
+          "target": "name=vld2",
+          "value": "SAVESCREENSHOT",
+          "id": "f4bdf9d4-36c3-4a92-8545-0108d9078497"
+        },
+        {
+          "command": "assertValue",
+          "target": "name=vld2",
+          "value": "5",
+          "id": "e5c664f9-2a34-4433-b05c-62933ea0df48"
+        }
+      ]
+    },
+    {
+      "id": "281e0c2b-4815-471c-ae9b-a5e360a49fc9",
+      "name": "t05 Check user access",
+      "commands": [
+        {
+          "id": "f6c41527-91c7-4ca7-9331-5e5fff118fb7",
+          "command": "open",
+          "target": "/",
+          "value": ""
+        },
+        {
+          "command": "click",
+          "target": "linkText=My Projects",
+          "value": "",
+          "id": "2695b53e-2276-49c0-9fcb-cf22344f4ecc"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//*[@id='table-proj_table'][contains(.,'Import Mapper Test C')]",
+          "value": "",
+          "id": "854237d3-e936-4b4c-85cf-530a499b8ff3"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//*[@id='table-proj_table'][contains(.,'Import Mapper Test L')]",
+          "value": "",
+          "id": "c3c7ff07-e45e-434d-a13a-182a12f26175"
+        },
+        {
+          "command": "executeScript",
+          "target": "return ['user1','user2','user3']",
+          "value": "users",
+          "id": "8604ee5b-79aa-4a5c-8dbf-730a260e5f66"
+        },
+        {
+          "command": "executeScript",
+          "target": "return ['C','L']",
+          "value": "projtypes",
+          "id": "a42ac49a-7644-46ba-b8fd-c4377c6d90cc"
+        },
+        {
+          "command": "forEach",
+          "target": "users",
+          "value": "username",
+          "id": "f8519d5b-5701-4b0e-a61a-854095e67bab"
+        },
+        {
+          "command": "run",
+          "target": "fn switchuser",
+          "value": "",
+          "id": "9b57b5d4-582f-4ef3-9d0f-e9dbd4823fc3"
+        },
+        {
+          "command": "forEach",
+          "target": "projtypes",
+          "value": "projtype",
+          "id": "a92e3869-b27d-47ad-86fd-89117fec8cda"
+        },
+        {
+          "command": "click",
+          "target": "linkText=Import Mapper Test ${projtype}",
+          "value": "",
+          "id": "0e28e84f-33ab-42d8-9473-b7fcd3abd0d6"
+        },
+        {
+          "command": "if",
+          "target": "${username} == 'user3'",
+          "value": "",
+          "id": "1007636c-c698-4c59-a491-df899eb09f16"
+        },
+        {
+          "command": "runScript",
+          "target": "//SAVEDESC:Assert Import Mapper link not present",
+          "value": "",
+          "id": "862e4d1c-9cf8-44fa-94a3-5b68ea20f300"
+        },
+        {
+          "command": "assertElementNotPresent",
+          "target": "css=a[href*=\"prefix=import_mapper\"][href*=\"page=pages%2Fdashboard\"]",
+          "value": "",
+          "id": "3ef09dcd-080b-4b1d-a6b1-62377c8d7d7e"
+        },
+        {
+          "command": "else",
+          "target": "",
+          "value": "",
+          "id": "49d1b9b8-a991-44d2-9867-a84eb887b235"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"prefix=import_mapper\"][href*=\"page=pages%2Fdashboard\"]",
+          "value": "",
+          "id": "b2e70458-549a-4449-9494-254a31fb5853"
+        },
+        {
+          "command": "pause",
+          "target": "3000",
+          "value": "",
+          "id": "9198cff0-602d-41ca-ad9b-3f91c4b20600"
+        },
+        {
+          "command": "runScript",
+          "target": "$('#import-wrangler').css('width','550px').css('height','250px').css('overflow','hidden')",
+          "value": "",
+          "id": "badf29e0-4ff5-4e10-acce-e840ec6bdc6e"
+        },
+        {
+          "command": "if",
+          "target": "${username} == 'user1'",
+          "value": "",
+          "id": "e0dff5bb-05bb-4927-9e4e-ae402b6a2f03"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Assert 'New mapping', 'Delete', 'Edit' and 'Copy' buttons present",
+          "value": "",
+          "id": "21fcb36e-030e-4616-92fb-64f12aafcd6a"
+        },
+        {
+          "command": "type",
+          "target": "id=import-wrangler",
+          "value": "SAVESCREENSHOT",
+          "id": "01729359-0266-417c-9599-03bab9197243"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//button[contains(.,'New mapping')]",
+          "value": "",
+          "id": "0147f16b-a5e6-4964-9f8f-64596af119ef"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//button[contains(.,'Delete')]",
+          "value": "",
+          "id": "010256c5-e772-451f-a8db-196338e1323e"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//button[contains(.,'Edit')]",
+          "value": "",
+          "id": "42e29f1d-efa7-47a4-8851-9e6ae4b7ed43"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//button[contains(.,'Copy')]",
+          "value": "",
+          "id": "342d8856-7dce-4f36-89a9-722eb8c07f31"
+        },
+        {
+          "command": "else",
+          "target": "",
+          "value": "",
+          "id": "23fc6f44-126d-4b9d-8258-286a78fca96b"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Assert 'New mapping', 'Delete', 'Edit' and 'Copy' buttons not present",
+          "value": "",
+          "id": "1e1c9519-bc90-4492-9a10-e1382df97123"
+        },
+        {
+          "command": "type",
+          "target": "id=import-wrangler",
+          "value": "SAVESCREENSHOT",
+          "id": "27af7bdc-9917-4e84-b94b-57d17815c79d"
+        },
+        {
+          "command": "assertElementNotPresent",
+          "target": "xpath=//button[contains(.,'New mapping')]",
+          "value": "",
+          "id": "ad6ba885-7c56-4cd0-9a99-a6923c7cbb16"
+        },
+        {
+          "command": "assertElementNotPresent",
+          "target": "xpath=//button[contains(.,'Delete')]",
+          "value": "",
+          "id": "ff615d06-1d4a-449d-b95d-776a870af1a3"
+        },
+        {
+          "command": "assertElementNotPresent",
+          "target": "xpath=//button[contains(.,'Edit')]",
+          "value": "",
+          "id": "7936578f-267d-4a75-985e-e3738b16c450"
+        },
+        {
+          "command": "assertElementNotPresent",
+          "target": "xpath=//button[contains(.,'Copy')]",
+          "value": "",
+          "id": "b0259558-3d68-43d4-b375-3c5dbf76861e"
+        },
+        {
+          "command": "end",
+          "target": "",
+          "value": "",
+          "id": "4c8341b3-bd0a-4a4a-829f-2ec0cc984db3"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Assert 'Import' button present",
+          "value": "",
+          "id": "0d260cd8-2728-4445-88e8-666c80cce3db"
+        },
+        {
+          "command": "type",
+          "target": "id=import-wrangler",
+          "value": "SAVESCREENSHOT",
+          "id": "3333e07a-90e9-41fc-b1a5-b984677b0a64"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "xpath=//button[contains(@class,'btn-primary')][contains(.,'Import')]",
+          "value": "",
+          "id": "572170c7-2a0e-4f45-af35-cfa22dce6118"
+        },
+        {
+          "command": "end",
+          "target": "",
+          "value": "",
+          "id": "3e01ae2d-440a-4fa7-8675-574fd997cdf7"
+        },
+        {
+          "command": "click",
+          "target": "linkText=My Projects",
+          "value": "",
+          "id": "e73bd8cd-a312-4bf3-bb5e-0738ef9f5182"
+        },
+        {
+          "command": "end",
+          "target": "",
+          "value": "",
+          "id": "e00e9acf-02f8-43cb-951c-2f5ad4a1b118"
+        },
+        {
+          "command": "end",
+          "target": "",
+          "value": "",
+          "id": "0ca5bba5-972b-40b5-acc5-b6c44929c4d2"
+        }
+      ]
+    },
+    {
+      "id": "a46df8db-b47b-4bb3-bf78-4ae29e8ed5ae",
+      "name": "fn switchuser",
+      "commands": [
+        {
+          "id": "0556b6c2-f0ba-4951-b614-cf86fed4821b",
+          "command": "if",
+          "target": "$('#subheaderDiv2').length > 0",
+          "value": "",
+          "comment": "Arguments: username (user to log in as)"
+        },
+        {
+          "command": "executeScript",
+          "target": "$('#subheaderDiv2 span').remove();return $('#subheaderDiv2').text()",
+          "value": "_projtitle",
+          "id": "8100fc5e-e91e-4a76-a999-a2d0e8ed9340"
+        },
+        {
+          "command": "else",
+          "target": "",
+          "value": "",
+          "id": "e84bb1ae-0274-4adf-9aaf-f58a41752673"
+        },
+        {
+          "command": "executeScript",
+          "target": "return null",
+          "value": "_projtitle",
+          "id": "81070039-3631-4e86-9f10-92ed056855bc"
+        },
+        {
+          "command": "end",
+          "target": "",
+          "value": "",
+          "id": "309ac67d-28da-4256-89b1-90e4a6c52cfc"
+        },
+        {
+          "command": "executeScript",
+          "target": "return $('a[href*=\"index.php?action=myprojects\"]').attr('href')",
+          "value": "_myprojects",
+          "id": "92d138f7-a2c4-41c8-ac9b-b4fd6a98cebf"
+        },
+        {
+          "command": "executeScript",
+          "target": "return $('#username-reference').text()",
+          "value": "_oldusername",
+          "id": "522a76cc-fdcd-4070-a095-3f1b46f4a1d2"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Log out as ${_oldusername}",
+          "value": "",
+          "id": "406ec2f7-6e90-4f8b-90d6-7f1d46b1b242"
+        },
+        {
+          "command": "click",
+          "target": "css=a[href*=\"logout=1\"]",
+          "value": "",
+          "id": "a3aec8bd-292b-48b8-9bc6-86ddd87eb4d1"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "id=username",
+          "value": "30000",
+          "id": "0204edec-a5e1-4a08-a48b-22e7fdc191f7"
+        },
+        {
+          "command": "runScript",
+          "target": "$('#username').remove();window.location = ${_myprojects}",
+          "value": "",
+          "id": "a2e73c9b-22d1-40e4-91ba-af60173aabca"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "id=username",
+          "value": "30000",
+          "id": "54c4bb58-d706-4b68-b1da-5242d9f8e80d"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "id=username",
+          "value": "",
+          "id": "56c55cfe-af1d-483e-88f5-02ef9c7891a0"
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "id=password",
+          "value": "",
+          "id": "f442211b-0585-4aa3-a75e-56ffeba0e3b8"
+        },
+        {
+          "command": "runScript",
+          "target": "$('#username').val(${username});$('#password').val('abc123');$('#footer').remove()",
+          "value": "",
+          "id": "2b8fb0f5-963a-4b28-b7bb-b4801a370d51"
+        },
+        {
+          "command": "pause",
+          "target": "200",
+          "value": "",
+          "id": "bbb95400-27b4-4e2c-a657-396f7782b4ab"
+        },
+        {
+          "command": "runScript",
+          "target": "//SETDESC:Log in as ${username}",
+          "value": "",
+          "id": "d6b61901-aaf9-4134-a0ec-cf0d58bd0533"
+        },
+        {
+          "command": "click",
+          "target": "id=login_btn",
+          "value": "",
+          "id": "30d82b14-6fe3-44a1-b7fd-b7893deb20df"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "id=footer",
+          "value": "30000",
+          "id": "a72b4d6f-21d4-4e72-b41f-cfbf7c2452e2"
+        },
+        {
+          "command": "if",
+          "target": "${_projtitle} !== null",
+          "value": "",
+          "id": "5968b80e-f0ee-4c58-8ac5-5001401ded5f"
+        },
+        {
+          "command": "click",
+          "target": "linkText=${_projtitle}",
+          "value": "",
+          "id": "bb82e8ce-16c4-493d-9a51-cf1383afcfd2"
+        },
+        {
+          "command": "waitForElementPresent",
+          "target": "id=south",
+          "value": "30000",
+          "id": "b35c8139-b354-4f53-b268-99521d6117b1"
+        },
+        {
+          "command": "end",
+          "target": "",
+          "value": "",
+          "id": "a4b6ae59-0c1d-41ad-8b31-03b76858cd3e"
+        }
+      ]
+    }
+  ],
+  "snapshot": {
+    "dependencies": {},
+    "tests": [],
+    "jest": {
+      "extraGlobals": []
+    }
+  }
+}

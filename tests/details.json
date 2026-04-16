@@ -1,0 +1,27 @@
+[
+	{
+		"file" : "test_01_Import_into_classic_project.py",
+		"name" : "Import into classic project",
+		"expected" : "Import mapping can be created in a classic project, including field transformations, and a csv file is imported successfully."
+	},
+	{
+		"file" : "test_02_Import_into_longitudinal_project.py",
+		"name" : "Import into longitudinal project",
+		"expected" : "Import mapping can be created in a longitudinal project, including field transformations, and a csv file is imported successfully."
+	},
+	{
+		"file" : "test_03_Import_repeating_into_classic_project.py",
+		"name" : "Import repeating instances into classic project",
+		"expected" : "Import mapping can be created in a classic project for importing repeating instances, and a csv file is imported successfully."
+	},
+	{
+		"file" : "test_04_Import_repeating_into_longitudinal_project.py",
+		"name" : "Import repeating instances into longitudinal project",
+		"expected" : "Import mapping can be created in a longitudinal project for importing repeating instances, and a csv file is imported successfully."
+	},
+	{
+		"file" : "test_05_Check_user_access.py",
+		"name" : "Check user access (for admin, importer, and neither)",
+		"expected" : "Admin user should be able to access the mappings and make changes to them. Importer should be able to access the mappings to do an import but not edit. For users with neither role there should be no access to the import mapper at all."
+	}
+]
