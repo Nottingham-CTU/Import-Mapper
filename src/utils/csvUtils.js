@@ -33,8 +33,8 @@ export async function extractCSVHeaders(file) {
   const text = await file.text();
   const firstLine = text.split("\n")[0];
   return firstLine
-      .split(",")
-      .map((h) => h.trim().replace(/^"|"$/g, ""));
+      .match(/(?<=^|,)(?:[^,"]*(?!")(?<!")|"(?:[^"]|"")*")/g)
+      .map((h) => h.trim().replace(/^"|"$/g, "").replace('""','"'));
 }
 
 /**
