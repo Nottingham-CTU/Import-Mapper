@@ -1,0 +1,13 @@
+{
+  "name": "nottingham/import-mapper",
+  "description": "Advanced CSV importer for REDCap",
+  "type": "library",
+  "require": {
+    "php": ">=8.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Nottingham\\ImportMapper\\": "classes/"
+    }
+  }
+}
