@@ -172,7 +172,8 @@ final class RecordRepository
     public function reserveNewRecordId(
         ?int                 $projectId = null,
         ?ProjectStructure $project = null,
-        ?string              $dag = null
+        ?string              $dag = null,
+        ?string              $eventName = null
     ): string
     {
         $resolvedProjectId = $projectId ?? $this->module->getProjectId();
@@ -184,7 +185,15 @@ final class RecordRepository
             $crnModule = ExternalModules::getModuleInstance('custom_record_naming');
             if ( $crnModule !== null && method_exists($crnModule, 'createRecord') )
             {
-                $eventId = $project?->getFirstEventId() ?? null;
+                $eventId = null;
+                if ( ( $eventName ?? '' ) != '' )
+                {
+                    $eventId = $project?->getEventIdByName( $eventName );
+                }
+                if ( $eventId === null )
+                {
+                    $eventId = $project?->getFirstEventId() ?? null;
+                }
                 $dagId = ( $dag !== null && $project !== null )
                     ? $project->getDagIdByUniqueName($dag)
                     : null;
