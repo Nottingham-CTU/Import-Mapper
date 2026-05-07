@@ -37,6 +37,12 @@
       "name": "Notification Emails",
       "type": "text",
       "repeatable": true
+    },
+    {
+      "key": "mappings",
+      "name": "Mappings",
+      "type": "json",
+      "hidden": true
     }
   ],
   "links": {
