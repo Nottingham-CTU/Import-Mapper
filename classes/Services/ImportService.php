@@ -47,6 +47,7 @@ final readonly class ImportService
      * @param int $csvOffset Number of data rows to skip (for chunked resume)
      * @param int $chunkSize Maximum number of rows to process in this call
      * @param int|null $totalRows Known total rows from previous chunk; skips re-counting when provided
+     * @param string|null $defaultDagName The importing user's DAG to use if a DAG is not specified
      * @return ImportResult The import result
      * @throws Exception
      */
@@ -57,7 +58,8 @@ final readonly class ImportService
         ?int      $projectId = null,
         int       $csvOffset = 0,
         int       $chunkSize = 500,
-        ?int      $totalRows = null
+        ?int      $totalRows = null,
+        ?string   $defaultDagName = null
     ): ImportResult
     {
         try {
@@ -86,6 +88,12 @@ final readonly class ImportService
             }
             if ($tickCallback !== null) {
                 $tickCallback('validating', $csvOffset, $totalRows);
+            }
+
+            // Set the default DAG name for import.
+            if ( $defaultDagName !== null )
+            {
+                $this->rowProcessor->setDefaultDagName( $defaultDagName );
             }
 
             // Pre-fetch record and instance matching lookups before the row loop

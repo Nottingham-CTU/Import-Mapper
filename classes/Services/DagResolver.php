@@ -13,8 +13,11 @@ use Nottingham\ImportMapper\Models\ImportDataRow;
  * Handles the logic for determining which DAG a record should be assigned to
  * based on the mapping configuration
  */
-final readonly class DagResolver
+final class DagResolver
 {
+    // Default DAG name, set to the importing user's DAG (if applicable).
+    private ?string $defaultDagName = null;
+
     /**
      * Resolve DAG value for a data row
      *
@@ -30,7 +33,7 @@ final readonly class DagResolver
     public function resolve(ImportDataRow $dataRow, DagConfig $dagConfig, array $dagUniqueNames): ?string
     {
         if (!$dagConfig->enabled) {
-            return null;
+            return in_array($this->defaultDagName, $dagUniqueNames) ? $this->defaultDagName : null;
         }
 
         $mode = $dagConfig->mode;
@@ -67,5 +70,15 @@ final readonly class DagResolver
         }
 
         return $dagUniqueName;
+    }
+
+    /**
+     *  Set the default DAG name to use if the DAG config is not enabled.
+     *
+     *  @param string $dagName
+     */
+    public function setDefaultDagName( string $dagName ): void
+    {
+        $this->defaultDagName = $dagName;
     }
 }

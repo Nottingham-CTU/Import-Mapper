@@ -8,6 +8,7 @@ use Nottingham\ImportMapper\Models\ImportLogEntry;
 use Nottingham\ImportMapper\Repositories\ImportLogRepository;
 use Nottingham\ImportMapper\Repositories\MappingRepository;
 use Random\RandomException;
+use REDCap;
 
 /**
  * Manages the import job queue and the current run state of each job
@@ -125,6 +126,12 @@ final readonly class ImportJobManager
             (array)$this->module->getProjectSetting('notification-emails')
         ));
 
+        $dagName = $this->module->getUser()->getRights()['group_id'];
+        if ( $dagName !== null )
+        {
+            $dagName = REDCap::getGroupNames( true, $dagName );
+        }
+
         $this->module->setSystemSetting("import_job_$jobId", json_encode([
             'jobId'              => $jobId,
             'projectId'          => $projectId,
@@ -133,6 +140,7 @@ final readonly class ImportJobManager
             'csvPath'            => $csvPath,
             'queuedAt'           => time(),
             'notificationEmails' => $notificationEmails,
+            'dagName'            => $dagName,
         ]));
 
         $this->importRunState->save(

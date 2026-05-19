@@ -488,4 +488,14 @@ final class RowProcessor
     {
         return ($eventName ?? '') . '::' . ($repeatInstance ?? '') . '::' . $repeatInstrument;
     }
+
+    /**
+     *  Set the default DAG name to use if the DAG config is not enabled.
+     *
+     *  @param string $dagName
+     */
+    public function setDefaultDagName( string $dagName ): void
+    {
+        $this->dagResolver->setDefaultDagName( $dagName );
+    }
 }
