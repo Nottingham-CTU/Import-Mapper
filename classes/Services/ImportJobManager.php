@@ -127,6 +127,10 @@ final readonly class ImportJobManager
         ));
 
         $dagName = $this->module->getUser()->getRights()['group_id'];
+        if ( $dagName === '' )
+        {
+            $dagName = null;
+        }
         if ( $dagName !== null )
         {
             $dagName = REDCap::getGroupNames( true, $dagName );
