@@ -19,7 +19,7 @@ final readonly class ImportRunState
      */
     public function get(string $jobId, int $projectId): ?array
     {
-        $json = $this->module->getSystemSetting("import_run_$projectId_$jobId");
+        $json = $this->module->getSystemSetting("import_run_{$projectId}_$jobId");
         if ($json === null) {
             return null;
         }
@@ -32,7 +32,7 @@ final readonly class ImportRunState
      */
     public function save(string $jobId, int $projectId, array $state): void
     {
-        $this->module->setSystemSetting("import_run_$projectId_$jobId", json_encode($state));
+        $this->module->setSystemSetting("import_run_{$projectId}_$jobId", json_encode($state));
     }
 
     /**
@@ -40,7 +40,7 @@ final readonly class ImportRunState
      */
     public function clear(string $jobId, int $projectId): void
     {
-        $this->module->removeSystemSetting("import_run_$projectId_$jobId");
+        $this->module->removeSystemSetting("import_run_{$projectId}_$jobId");
     }
 
     /**
