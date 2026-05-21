@@ -95,7 +95,7 @@ Four independently enabled sections.
 - Same match/create logic as event matching.
 
 **DAG Assignment**
-- Off by default.
+- Off by default — if the importing user is in a DAG imported records will be assigned to that DAG, otherwise records will not be assigned to a DAG.
 - When enabled, choose a mode:
   - *Same DAG for all records*: select a fixed DAG from the project's defined DAGs.
   - *CSV column contains DAG*: select the CSV column whose values are DAG unique names. Rows with unrecognised DAG names will fail during import.
