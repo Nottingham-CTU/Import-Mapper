@@ -115,7 +115,8 @@ final readonly class ImportController
                 $projectId,
                 $csvOffset,
                 $chunkSize,
-                $totalRows
+                $totalRows,
+                $job['dagName']
             );
 
             if ($result->cancelled) {

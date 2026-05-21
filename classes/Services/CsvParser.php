@@ -98,6 +98,12 @@ final readonly class CsvParser
             if ($dataIndex >= $offset && $dataIndex < $chunkEnd) {
                 $rowNumber = $dataIndex + 2; // +1 for header row, +1 for 1-based numbering
                 $actualCount = count($row);
+                while ( $actualCount < $expectedCount )
+                {
+                    // If the row has fewer fields than the number of headers, add blank values.
+                    $row[] = '';
+                    $actualCount = count($row);
+                }
                 if ($actualCount !== $expectedCount) {
                     $invalidReason = "Expected $expectedCount columns. Found $actualCount.";
                     $dataRows[] = new ImportDataRow($rowNumber, $headers, $row, false, $invalidReason);

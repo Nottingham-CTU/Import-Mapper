@@ -84,7 +84,7 @@ final class RecordIdResolver
     {
         // If no matching config, reserve a new record ID
         if ($recordMatchingFieldMapping === null) {
-            $newId = $this->recordRepository->reserveNewRecordId($projectId, $project, $dag);
+            $newId = $this->recordRepository->reserveNewRecordId($projectId, $project, $dag, null);
             $this->newRecordIds[$newId] = true;
             return $newId;
         }
@@ -96,7 +96,8 @@ final class RecordIdResolver
 
         // If there is no matching value, reserve a new record ID
         if (empty($matchingValue)) {
-            $newId = $this->recordRepository->reserveNewRecordId($projectId, $project, $dag);
+            $newId =
+                $this->recordRepository->reserveNewRecordId($projectId, $project, $dag, $eventName);
             $this->newRecordIds[$newId] = true;
             return $newId;
         }
@@ -108,7 +109,8 @@ final class RecordIdResolver
 
         if ($this->prefetchDone) {
             // Prefetch loaded all existing records; a cache miss means this value is new
-            $newId = $this->recordRepository->reserveNewRecordId($projectId, $project, $dag);
+            $newId =
+                $this->recordRepository->reserveNewRecordId($projectId, $project, $dag, $eventName);
             $this->newRecordIds[$newId] = true;
             return $newId;
         }
