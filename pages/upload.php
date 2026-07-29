@@ -71,9 +71,12 @@ try {
         http_response_code(400);
         throw new Exception('Missing mapping ID');
     }
-
+    
+    // extract DAG if dag is selected at time of import
+    $dag = $_POST['mapping_dag'] ?? '';
+    $dag = trim($dag);
     // Queue the import job
-    $result = $module->importJobManager->queueImportJob($mappingId, $fileInfo['tmp_name']);
+    $result = $module->importJobManager->queueImportJob($mappingId, $fileInfo['tmp_name'],$dag);
 
     // Send successful JSON response
     http_response_code(200);

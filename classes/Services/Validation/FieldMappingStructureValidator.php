@@ -188,6 +188,14 @@ final readonly class FieldMappingStructureValidator
                     $errors[] = 'DAG matching mode is "csv_field" but no CSV field is selected';
                 }
             }
+            elseif ($mode === 'select_dag') {
+                $csvFieldName = '';
+                $dagUniqueName =  '';
+            }
+            else
+            {
+                $errors[] = 'Unknown matching mode';
+            }
         }
 
         return $errors;

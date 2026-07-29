@@ -25,6 +25,7 @@ final class DagResolver
      * - Whether DAG assignment is enabled in the mapping
      * - The DAG mode (same for all records vs. per-row from CSV column)
      * - The availability and validity of DAG values
+     * - if DAG is selected at time of import
      *
      * @param ImportDataRow $dataRow Source row from CSV
      * @return string|null DAG unique name, or null if no DAG is specified for this row
@@ -39,7 +40,16 @@ final class DagResolver
         $mode = $dagConfig->mode;
         if ($mode === DagMode::SAME_FOR_ALL) {
             return $dagConfig->dagUniqueName;
-        } else {
+        } 
+        if ($mode === DagMode::SELECT_DAG) {
+            $unique_dag = in_array($this->defaultDagName, $dagUniqueNames) ? $this->defaultDagName : null;
+            if(empty($this->defaultDagName))
+                throw new Exception("DAG has not been selected");
+            if($unique_dag == null)
+                throw new Exception("DAG '$this->defaultDagName' does not exist in this project");
+            return $unique_dag;
+        } 
+        else {
             return $this->resolveFromCsvColumn($dataRow, $dagConfig, $dagUniqueNames);
         }
     }

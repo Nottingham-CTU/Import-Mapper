@@ -25,6 +25,14 @@ final readonly class DagConfig
     {
         return new self(false, null, null, null);
     }
+    
+    /**
+     * @return self
+     */
+    public static function fromSelectMode(): self
+    {
+        return new self(true, DagMode::SELECT_DAG, null, null);
+    }
 
     /**
      * @param string $dagUniqueName
@@ -60,6 +68,11 @@ final readonly class DagConfig
             if (!in_array($this->dagCsvFieldName, $csvFields, true)) {
                 $errors[] = ImportError::mapping("CSV column '$this->dagCsvFieldName' not found in uploaded file");
             }
+        }
+        // if mode is not defined, return error
+        else if($this->mode !== DagMode::SELECT_DAG)
+        {
+            $errors[] = ImportError::mapping("Unknown DAG Mode");
         }
         return $errors;
     }

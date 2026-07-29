@@ -88,6 +88,7 @@ export const DEFAULT_MATCHING = {
 export const DAG_MODES = {
   SAME_FOR_ALL: "same_for_all",
   CSV_FIELD: "csv_field",
+  SELECT_DAG: 'select_dag',
 };
 
 // Modal IDs

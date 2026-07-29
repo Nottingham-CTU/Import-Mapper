@@ -20,6 +20,7 @@ export function useImport({ mapping, uploadUrl, csrfToken }) {
   const [importStatus, setImportStatus] = useState("idle");
   const [isImporting, setIsImporting] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedDag, setSelectedDag] = useState(null);
   const [csvPreview, setCsvPreview] = useState(null);
   const [validationErrors, setValidationErrors] = useState([]);
   const [importResults, setImportResults] = useState(null);
@@ -75,7 +76,13 @@ export function useImport({ mapping, uploadUrl, csrfToken }) {
     },
     [mapping],
   );
-
+  
+  function handleDagSelect(dagName) {
+   const nextDag = dagName;
+   setSelectedDag(nextDag);
+   setDateFormat
+  }
+  
   /**
    * Starts the import process by uploading the file to upload.php
    */
@@ -92,6 +99,7 @@ export function useImport({ mapping, uploadUrl, csrfToken }) {
       formData.append("csv_file", selectedFile);
       formData.append("mapping_id", mapping.id);
       formData.append("redcap_csrf_token", csrfToken);
+      formData.append("mapping_dag", selectedDag);
 
       const response = await fetch(uploadUrl, { method: "POST", body: formData });
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
@@ -113,13 +121,14 @@ export function useImport({ mapping, uploadUrl, csrfToken }) {
     } finally {
       setIsImporting(false);
     }
-  }, [selectedFile, validationErrors, mapping, uploadUrl, csrfToken]);
+  }, [selectedFile, selectedDag, validationErrors, mapping, uploadUrl, csrfToken]);
 
   /**
    * Resets import state to allow another import
    */
   const handleReset = useCallback(() => {
     setSelectedFile(null);
+    setSelectedDag(null);
     setCsvPreview(null);
     setValidationErrors([]);
     setImportStatus("idle");
@@ -137,12 +146,14 @@ export function useImport({ mapping, uploadUrl, csrfToken }) {
     csvPreview,
     validationErrors,
     importResults,
-
+    selectedDag,
+    
     // Ref
     fileInputRef,
 
     // Actions
     handleFileSelect,
+    handleDagSelect,
     handleStartImport,
     handleReset,
   };

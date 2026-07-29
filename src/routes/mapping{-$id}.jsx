@@ -171,8 +171,9 @@ function Mapping() {
 
   async function handleSave() {
     setIsSaving(true);
-    await saveMapping("final");
-    await navigate({to: "/"});
+    const response = await saveMapping("final");
+    if(response == true)
+       await navigate({to: "/"});
   }
 
   async function handleSaveAndLeave() {
@@ -199,7 +200,7 @@ function Mapping() {
               "This mapping cannot be saved while an import is in progress. Please wait for the import to complete.",
             buttons: [{ label: "OK", className: "btn-primary" }],
           });
-          return;
+          return false;
         }
       }
 
@@ -220,9 +221,11 @@ function Mapping() {
       }
 
       setUnsavedChanges(false);
+      return true;
     } catch (error) {
       handleApiError(error, showModal);
     }
+    return false;
   }
 
   const structureChangedMessage = (

@@ -112,6 +112,9 @@ final class RecordIdResolver
             $newId =
                 $this->recordRepository->reserveNewRecordId($projectId, $project, $dag, $eventName);
             $this->newRecordIds[$newId] = true;
+            
+            // if new id add to cache so does not create duplicates if more than one matching value in file
+            $this->recordMatchingCache[$cacheKey] = $newId;
             return $newId;
         }
 
