@@ -1,5 +1,7 @@
 <?php
 
+namespace Nottingham\ImportMapper;
+
 use Nottingham\ImportMapper\Repositories\MappingRepository;
 use Nottingham\ImportMapper\Services\ProjectService;
 use Nottingham\ImportMapper\Models\Mapping;
