@@ -27,7 +27,7 @@ final readonly class MappingRepository
      * @param ID allow new mapping to save with same unique id for import
      * @return string The generated mapping ID
      */
-    public function save(Mapping $mapping, string $id = null): string
+    public function save(Mapping $mapping, ?string $id = null): string
     {
         $mappings = $this->getAllAsArrays();
         if($id == null)
