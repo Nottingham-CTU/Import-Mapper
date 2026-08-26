@@ -16,5 +16,24 @@ $mainJs = $buildManifest['src/App.jsx']['file'];
     </script>
     <div id="import-wrangler"></div>
     <script type="module" src="<?= $module->getUrl('dist/' . $mainJs) ?>"></script>
-
+    <?php
+    if ( $module->getUser()->isSuperUser() )
+    {
+    ?>
+        <p>&nbsp;</p>
+        <div>
+        <hr style="max-width:300px;margin-left:0px">
+        <p><b>Administrative Options</b></p>
+        <ul>
+         <li>
+          <a href="<?php echo $module->getUrl( 'pages/export_mappings.php' ) ?>">Export mapping definitions</a>
+         </li>
+         <li>
+          <a href="<?php echo $module->getUrl( 'pages/import_mappings.php' ) ?>">Import mapping definitions</a>
+         </li>
+        </ul>
+        </div>
+    <?php
+    }
+    ?>
 <?php require_once APP_PATH_DOCROOT . 'ProjectGeneral/footer.php'; ?>

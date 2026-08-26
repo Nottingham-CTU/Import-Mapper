@@ -42,8 +42,11 @@ final readonly class MatchingConfig
             $dagMode = DagMode::from($dag['mode']);
             if ($dagMode === DagMode::CSV_FIELD) {
                 $dagMatchConfig = DagConfig::fromCsvFieldName($dag['csvFieldName']);
-            } else {
+            } else if ($dagMode === DagMode::SAME_FOR_ALL){
                 $dagMatchConfig = DagConfig::fromUniqueName($dag['dagUniqueName']);
+            }
+            else{
+                $dagMatchConfig = DagConfig::fromSelectMode();   
             }
         }
 

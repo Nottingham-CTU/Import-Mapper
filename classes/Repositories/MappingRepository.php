@@ -24,12 +24,14 @@ final readonly class MappingRepository
      * Save a new mapping
      *
      * @param Mapping $mapping The mapping to save
+     * @param ID allow new mapping to save with same unique id for import
      * @return string The generated mapping ID
      */
-    public function save(Mapping $mapping): string
+    public function save(Mapping $mapping, ?string $id = null): string
     {
         $mappings = $this->getAllAsArrays();
-        $id = uniqid();
+        if($id == null)
+            $id = uniqid();
 
         $mappingData = $mapping->toArray();
         $mappingData['id'] = $id;
@@ -39,7 +41,7 @@ final readonly class MappingRepository
 
         return $id;
     }
-
+    
     /**
      * Update an existing mapping
      *

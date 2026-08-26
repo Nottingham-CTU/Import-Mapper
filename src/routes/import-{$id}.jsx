@@ -20,6 +20,7 @@ function RouteComponent() {
   const { showModal } = useModal();
   const hasInitiatedDraftUpdate = useRef(false);
   const [mapping, setMapping] = useState(null);
+  const [projectStructure, setProjectStructure] = useState(null);
   const [loading, setLoading] = useState(true);
   const [showStructureChangedModal, setShowStructureChangedModal] =
     useState(false);
@@ -30,12 +31,14 @@ function RouteComponent() {
     importStatus,
     isImporting,
     selectedFile,
+    selectedDag,
     csvPreview,
     validationErrors,
     importResults,
     fileInputRef,
     handleFileSelect,
     handleStartImport,
+    handleDagSelect,
     handleReset,
   } = useImport({
     mapping,
@@ -45,13 +48,15 @@ function RouteComponent() {
 
   // Load data when ID changes
   useEffect(() => {
-    loadMapping();
+    loadMappingAndStructure();
   }, [id]);
 
-  async function loadMapping() {
+  async function loadMappingAndStructure() {
     try {
       const mapping = await mappingApi.getMapping(id);
       setMapping(mapping);
+      const projectStructure = await mappingApi.getProjectStructure();
+      setProjectStructure(projectStructure);
     } catch (error) {
       handleApiError(error, showModal, () => navigate({ to: "/" }));
     } finally {
@@ -115,7 +120,7 @@ function RouteComponent() {
     <>
       <div className="p-3">
         <h5 className="text-secondary-emphasis mb-3">
-          Import Data: {mapping.name}
+          Import Data: {mapping.name} : {console.log(mapping)}
         </h5>
 
         {importStatus === "idle" && (
@@ -138,7 +143,34 @@ function RouteComponent() {
                 Upload the CSV file that you want to import data from.
               </div>
             </div>
-
+            {mapping.matching.dag.mode === "select_dag" && (
+            <div className="mb-3">
+              <label htmlFor="dag" className="form-label">
+                Select DAG to assignment for records
+              </label>
+              <select
+                  className="form-select"
+                  value={selectedDag ?? ""}
+                  disabled={!mapping.matching.dag.enabled || isImporting}
+                  required={mapping.matching.dag.enabled}
+                  onChange={(e) => {   
+                    handleDagSelect(e.target.value);
+                }}
+                >
+                  <option value="">Select DAG...</option>
+                  {Object.keys(projectStructure.data_access_groups || {}).map(
+                    (dagName) => (
+                      <option key={dagName} value={dagName}>
+                        {dagName}
+                      </option>
+                    ),
+                  )}
+                </select>
+                <div className="form-text">
+                  Configure Data Access Group assignment for imported records
+                </div>
+              </div>
+              )}
             {validationErrors.length > 0 && (
               <div className="alert alert-danger" role="alert">
                 <strong>CSV validation errors:</strong>
@@ -194,7 +226,7 @@ function RouteComponent() {
                 className="btn btn-success"
                 onClick={handleStartImport}
                 disabled={
-                  !selectedFile || validationErrors.length > 0 || isImporting
+                  !selectedFile || (mapping.matching.dag.mode === "select_dag" && !selectedDag) || validationErrors.length > 0 || isImporting
                 }
               >
                 {isImporting ? "Uploading..." : "Start Import"}

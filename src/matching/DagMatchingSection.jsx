@@ -52,6 +52,7 @@ function DagMatchingSection({
                 <option value="">Select mode...</option>
                 <option value="same_for_all">Same DAG for all records</option>
                 <option value="csv_field">CSV column contains DAG</option>
+                <option value="select_dag">Select DAG during import</option>
               </select>
             </td>
             <td>

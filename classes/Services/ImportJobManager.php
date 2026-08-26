@@ -102,11 +102,12 @@ final readonly class ImportJobManager
      *
      * @param string $mappingId The mapping ID to use
      * @param string $tmpFilePath The PHP temporary file path from $_FILES
+     * @param string $dag The DAG if DAG mode is selected at the time of import
      * @return array Response with success status and jobId
      * @throws RandomException
      * @throws Exception
      */
-    public function queueImportJob(string $mappingId, string $tmpFilePath): array
+    public function queueImportJob(string $mappingId, string $tmpFilePath, string $dag): array
     {
         $mapping = $this->mappingRepository->findById($mappingId);
         $mappingName = $mapping->name;
@@ -121,21 +122,27 @@ final readonly class ImportJobManager
         if (!move_uploaded_file($tmpFilePath, $csvPath)) {
             return ['success' => false, 'errors' => ['Failed to save uploaded file']];
         }
-
+        
         $notificationEmails = array_values(array_filter(
             (array)$this->module->getProjectSetting('notification-emails')
         ));
-
-        $dagName = $this->module->getUser()->getRights()['group_id'];
-        if ( $dagName === '' )
+       if($mapping->matchingConfig->dagConfig->enabled &&  $mapping->matchingConfig->dagConfig->mode?->value === 'select_dag')
         {
-            $dagName = null;
-        }
-        if ( $dagName !== null )
+           $dagName = $dag;
+        } 
+        else
         {
-            $dagName = REDCap::getGroupNames( true, $dagName );
+            $dagName = $this->module->getUser()->getRights()['group_id'];
+            if ( $dagName === '' )
+            {
+                $dagName = null;
+            }
+            if ( $dagName !== null )
+            {
+                $dagName = REDCap::getGroupNames( true, $dagName );
+            }
         }
-
+        
         $this->module->setSystemSetting("import_job_$jobId", json_encode([
             'jobId'              => $jobId,
             'projectId'          => $projectId,
