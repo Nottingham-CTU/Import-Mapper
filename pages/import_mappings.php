@@ -2,6 +2,7 @@
 
 namespace Nottingham\ImportMapper;
 
+use Exception;
 use Nottingham\ImportMapper\Repositories\MappingRepository;
 use Nottingham\ImportMapper\Services\ProjectService;
 use Nottingham\ImportMapper\Models\Mapping;
