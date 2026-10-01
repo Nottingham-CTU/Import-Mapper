@@ -176,7 +176,7 @@ function FieldMappingTransformsModal({
 
   // Available CSV fields for additional field selects
   const availableAdditionalFields = (csvFields || []).filter(
-    (field) => field !== fieldMapping.csvFieldName,
+    (field) => field,
   );
 
   // ── Consolidated Generate Preview ────────────────────────────────────────
