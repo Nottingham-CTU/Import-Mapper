@@ -160,9 +160,6 @@ final readonly class FieldMappingTransformValidator
                 $errors[] = "Field combination for '$csvFieldName' contains duplicate additional fields.";
             }
 
-            if (in_array($csvFieldName, $additionalFieldNames, true)) {
-                $errors[] = "Field combination for '$csvFieldName': cannot combine a field with itself.";
-            }
 
             $additionalFields = $additionalFieldNames;
 
