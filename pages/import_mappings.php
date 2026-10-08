@@ -228,7 +228,7 @@ if (!empty($_FILES)) { // file is uploaded
 // Display the project header
 require_once APP_PATH_DOCROOT . 'ProjectGeneral/header.php';
 ?>
-<div class="projhdr">Import Mapping Definationas</div>
+<div class="projhdr">Import Mapping Definitions</div>
 <p style="font-size:11px">
     <a href="<?php echo $module->getUrl('pages/dashboard.php') ?>"><i class="fas fa-arrow-circle-left fs11"></i> Back to Mappings</a>
 </p>
